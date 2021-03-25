@@ -1,0 +1,24 @@
+package Entity;
+
+public class Acquisto {
+
+	private String data;
+	private int importo;
+
+	public String getData() {
+		return data;
+	}
+
+	public int getImporto() {
+		return this.importo;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public void setImporto(int importo) {
+		this.importo = importo;
+	}
+
+}

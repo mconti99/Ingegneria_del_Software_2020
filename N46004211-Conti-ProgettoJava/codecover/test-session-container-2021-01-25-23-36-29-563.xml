@@ -1,0 +1,2040 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1611614189556" TestSessionContainerId="f40b9f84-220e-4810-878b-fb589546bab9" version="1.0">
+    <SrcFileList>
+        <SrcFile Content="package Boundary;&#13;&#10;&#13;&#10;import java.awt.EventQueue;&#13;&#10;&#13;&#10;import javax.swing.JFrame;&#13;&#10;import javax.swing.JPanel;&#13;&#10;import javax.swing.border.EmptyBorder;&#13;&#10;import javax.swing.JButton;&#13;&#10;import java.awt.event.ActionListener;&#13;&#10;import java.awt.event.ActionEvent;&#13;&#10;import java.awt.Font;&#13;&#10;import java.awt.GradientPaint;&#13;&#10;import java.awt.Graphics;&#13;&#10;import java.awt.Graphics2D;&#13;&#10;import java.awt.Paint;&#13;&#10;import java.awt.RenderingHints;&#13;&#10;&#13;&#10;import javax.swing.JTextField;&#13;&#10;import javax.swing.JLabel;&#13;&#10;import java.awt.Color;&#13;&#10;import javax.swing.JPasswordField;&#13;&#10;import javax.swing.JCheckBox;&#13;&#10;import javax.swing.SwingConstants;&#13;&#10;import java.awt.Toolkit;&#13;&#10;&#13;&#10;public class RichiestaRimborsoFormWindow extends JFrame {&#13;&#10;&#13;&#10;&#9;private static final long serialVersionUID = 1L;&#13;&#10;&#9;private JPanel contentPane;&#13;&#10;&#9;private JTextField textCodice;&#13;&#10;&#9;private JTextField textID;&#13;&#10;&#9;private JPasswordField passwordField;&#13;&#10;&#9;private JLabel lblStringa;&#13;&#10;&#9;private JLabel lblProgrammaCashBack;&#13;&#10;&#9;private JLabel lblPassword;&#13;&#10;&#9;private JLabel lblID;&#13;&#10;&#9;private JPanel panelSfumato;&#13;&#10;&#9;&#13;&#10;&#13;&#10;&#9;&#13;&#10;&#9;public static void main(String[] args) {&#13;&#10;&#9;&#9;EventQueue.invokeLater(new Runnable() {&#13;&#10;&#9;&#9;&#9;public void run() {&#13;&#10;&#9;&#9;&#9;&#9;try {&#13;&#10;&#9;&#9;&#9;&#9;&#9;RichiestaRimborsoFormWindow frame = new RichiestaRimborsoFormWindow();&#13;&#10;&#9;&#9;&#9;&#9;&#9;frame.setVisible(true);&#13;&#10;&#9;&#9;&#9;&#9;} catch (Exception e) {&#13;&#10;&#9;&#9;&#9;&#9;&#9;e.printStackTrace();&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;});&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#13;&#10;&#9;public RichiestaRimborsoFormWindow() {&#13;&#10;&#9;&#9;setTitle(&quot;Programma CashBack - Richiesta Rimborso&quot;);&#13;&#10;&#9;&#9;setIconImage(Toolkit.getDefaultToolkit().getImage(RichiestaRimborsoFormWindow.class.getResource(&quot;/Boundary/io.png&quot;)));&#13;&#10;&#9;&#9;setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);&#13;&#10;&#9;&#9;setBounds(100, 100, 450, 300);&#13;&#10;&#9;&#9;contentPane = new JPanel();&#13;&#10;&#9;&#9;contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));&#13;&#10;&#9;&#9;setContentPane(contentPane);&#13;&#10;&#9;&#9;contentPane.setLayout(null);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;JButton RichiediRimborsoButton = new JButton(&quot;Richiedi rimborso&quot;);&#13;&#10;&#9;&#9;RichiediRimborsoButton.setFont(new Font(&quot;Franklin Gothic Medium&quot;, Font.PLAIN, 13));&#13;&#10;&#9;&#9;RichiediRimborsoButton.addActionListener(new ActionListener() {&#13;&#10;&#9;&#9;&#9;public void actionPerformed(ActionEvent e) {&#13;&#10;&#9;&#9;&#9;&#9;//gestore, chiama una funzione del controller&#13;&#10;&#9;&#9;&#9;&#9;int codice;&#13;&#10;&#9;&#9;&#9;&#9;if(textCodice.getText().equals(&quot;&quot;) || textID.getText().equals(&quot;&quot;) || String.valueOf(passwordField.getPassword()).equals(&quot;&quot;)) {&#13;&#10;&#9;&#9;&#9;&#9;&#9;lblStringa.setVisible(true);&#13;&#10;&#9;&#9;&#9;&#9;&#9;lblStringa.setText(&quot;Non puoi lasciare i campi vuoti!&quot;);&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;codice = Integer.parseInt(textCodice.getText());&#13;&#10;&#9;&#9;&#9;&#9;String id = textID.getText();&#13;&#10;&#9;&#9;&#9;&#9;String password = String.valueOf(passwordField.getPassword());&#13;&#10;&#9;&#9;&#9;&#9;String stringa=Control.RichiestaRimborsoController.RichiestaRimborsoHandler(codice, id, password);&#13;&#10;&#9;&#9;&#9;&#9;lblStringa.setVisible(true);&#13;&#10;&#9;&#9;&#9;&#9;lblStringa.setText(stringa);&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;});&#13;&#10;&#9;&#9;RichiediRimborsoButton.setBounds(134, 157, 146, 30);&#13;&#10;&#9;&#9;contentPane.add(RichiediRimborsoButton);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;lblID = new JLabel(&quot;User ID&quot;);&#13;&#10;&#9;&#9;lblID.setFont(new Font(&quot;Dubai&quot;, Font.PLAIN, 18));&#13;&#10;&#9;&#9;lblID.setBounds(92, 67, 62, 30);&#13;&#10;&#9;&#9;contentPane.add(lblID);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;lblPassword = new JLabel(&quot;Password&quot;);&#13;&#10;&#9;&#9;lblPassword.setFont(new Font(&quot;Dubai&quot;, Font.PLAIN, 18));&#13;&#10;&#9;&#9;lblPassword.setBounds(277, 67, 70, 30);&#13;&#10;&#9;&#9;contentPane.add(lblPassword);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;textID = new JTextField();&#13;&#10;&#9;&#9;textID.setBounds(61, 97, 116, 20);&#13;&#10;&#9;&#9;contentPane.add(textID);&#13;&#10;&#9;&#9;textID.setColumns(15);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;lblStringa = new JLabel(&quot;&quot;);&#13;&#10;&#9;&#9;lblStringa.setHorizontalAlignment(SwingConstants.LEFT);&#13;&#10;&#9;&#9;lblStringa.setFont(new Font(&quot;Segoe UI Semibold&quot;, Font.PLAIN, 13));&#13;&#10;&#9;&#9;lblStringa.setForeground(Color.WHITE);&#13;&#10;&#9;&#9;lblStringa.setBounds(10, 207, 414, 30);&#13;&#10;&#9;&#9;lblStringa.setVisible(false);&#13;&#10;&#9;&#9;contentPane.add(lblStringa);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;textCodice = new JTextField();&#13;&#10;&#9;&#9;textCodice.setBounds(257, 30, 70, 20);&#13;&#10;&#9;&#9;contentPane.add(textCodice);&#13;&#10;&#9;&#9;textCodice.setColumns(6);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;lblProgrammaCashBack = new JLabel(&quot;Codice del programma CashBack&quot;);&#13;&#10;&#9;&#9;lblProgrammaCashBack.setBounds(33, 27, 201, 26);&#13;&#10;&#9;&#9;contentPane.add(lblProgrammaCashBack);&#13;&#10;&#9;&#9;lblProgrammaCashBack.setFont(new Font(&quot;Dubai&quot;, Font.PLAIN, 15));&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;JCheckBox chckbxPassword = new JCheckBox(&quot;Mostra password&quot;);&#13;&#10;&#9;&#9;chckbxPassword.setOpaque(false);&#13;&#10;&#9;&#9;chckbxPassword.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 11));&#13;&#10;&#9;&#9;chckbxPassword.addActionListener(new ActionListener() {&#13;&#10;&#9;&#9;&#9;public void actionPerformed(ActionEvent e) {&#13;&#10;&#9;&#9;&#9;&#9;if(chckbxPassword.isSelected()) {&#13;&#10;&#9;&#9;&#9;&#9;&#9;passwordField.setEchoChar((char)0);&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;&#9;passwordField.setEchoChar('*');&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;});&#13;&#10;&#9;&#9;chckbxPassword.setBounds(257, 120, 121, 20);&#13;&#10;&#9;&#9;contentPane.add(chckbxPassword);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;passwordField = new JPasswordField();&#13;&#10;&#9;&#9;passwordField.setColumns(10);&#13;&#10;&#9;&#9;passwordField.setEchoChar('*');&#13;&#10;&#9;&#9;passwordField.setBounds(257, 97, 107, 20);&#13;&#10;&#9;&#9;contentPane.add(passwordField);&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;panelSfumato = new JPanel() {&#13;&#10;&#13;&#10;&#9;&#9;&#9;private static final long serialVersionUID = 1L;&#13;&#10;&#9;&#9;&#9;@Override&#13;&#10;&#9;&#9;&#9;protected void paintComponent(Graphics g) {&#13;&#10;&#9;            if (g instanceof Graphics2D) {   &#13;&#10;&#9;               int w = getWidth();&#13;&#10;&#9;               int h = getHeight();&#13;&#10;&#9;               Paint p = new GradientPaint(w/2, h, Color.BLUE, w/2, 0, Color.WHITE, true);&#13;&#10;&#9;               Graphics2D g2d = (Graphics2D)g;&#13;&#10;&#9;               g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);&#13;&#10;&#9;               g2d.setPaint(p);&#13;&#10;&#9;               g2d.fillRect(0, 0, w, h);&#13;&#10;&#9;            } else {&#13;&#10;&#9;               super.paintComponent(g);&#13;&#10;&#9;            }&#13;&#10;&#9;         }&#13;&#10;&#9;      };&#13;&#10;&#9;&#9;panelSfumato.setBounds(0, 0, 434, 261);&#13;&#10;&#9;&#9;contentPane.add(panelSfumato);&#13;&#10;&#9;}&#13;&#10;}&#13;&#10;" Filename="RichiestaRimborsoFormWindow.java" Intrnl_Id="1"/>
+        <SrcFile Content="package Control;&#13;&#10;&#13;&#10;public class RichiestaRimborsoController {&#13;&#10;&#9;static public String RichiestaRimborsoHandler(int codice, String id, String psw) {&#13;&#10;&#9;&#9;String stringa = VerificaRimborso(codice, id, psw);&#13;&#10;&#9;&#9;if(stringa.equals(&quot;Inserimento dei dati valido, richiesta in corso&quot;)) {&#13;&#10;&#9;&#9;&#9;stringa = &quot;Il rimborso che riceverai sul conto corrente è di &quot; + Float.toString(RichiestaRimborso(codice, id, psw)) + &quot; euro&quot;;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return stringa;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;&#13;&#10;&#9;static private float RichiestaRimborso(int codice, String id, String psw) {&#13;&#10;&#9;&#9;float imp=Entity.ApplicazioneCashBack.RichiediRimborso(codice, id, psw);&#13;&#10;&#9;&#9;return imp;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;&#13;&#10;&#9;static private String VerificaRimborso(int codice, String id, String psw) {&#13;&#10;&#9;&#9;Entity.ApplicazioneCashBack.init();&#13;&#10;&#9;&#9;String stringa=Entity.ApplicazioneCashBack.VerificaRimborso(codice, id, psw);&#13;&#10;&#9;&#9;return stringa;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}" Filename="RichiestaRimborsoController.java" Intrnl_Id="2"/>
+        <SrcFile Content="package Entity;&#13;&#10;&#13;&#10;public class Acquisto {&#13;&#10;&#13;&#10;&#9;private String data;&#13;&#10;&#9;private int importo;&#13;&#10;&#13;&#10;&#9;public String getData() {&#13;&#10;&#9;&#9;return data;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public int getImporto() {&#13;&#10;&#9;&#9;return this.importo;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public void setData(String data) {&#13;&#10;&#9;&#9;this.data = data;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public void setImporto(int importo) {&#13;&#10;&#9;&#9;this.importo = importo;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}" Filename="Acquisto.java" Intrnl_Id="3"/>
+        <SrcFile Content="package Entity;&#13;&#10;&#13;&#10;import java.util.*;&#13;&#10;&#13;&#10;public class ApplicazioneCashBack {&#13;&#10;&#13;&#10;&#9;static ArrayList&lt;ProgrammaCashBack&gt; programmi;&#13;&#10;&#9;private static ApplicazioneCashBack istanza=null;&#13;&#10;&#9;public static void init() {&#13;&#10;&#9;&#9;if(istanza==null) istanza=new ApplicazioneCashBack();&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;static public ProgrammaCashBack VerificaProgramma(int codice) {&#13;&#10;&#9;&#9;&#9;int i=0;&#13;&#10;&#9;&#9;&#9;boolean trovato=false;&#13;&#10;&#9;&#9;&#9;while((i&lt;programmi.size()) &amp;&amp; (!trovato)){&#13;&#10;&#9;&#9;&#9;&#9;if (programmi.get(i).getCodice() == codice) {&#13;&#10;&#9;&#9;&#9;&#9;&#9;trovato=true;&#13;&#10;&#9;&#9;&#9;&#9;} else {&#13;&#10;&#9;&#9;&#9;&#9;&#9;i++;&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;if (trovato) {&#13;&#10;&#9;&#9;&#9;&#9;return programmi.get(i);&#13;&#10;&#9;&#9;&#9;} else {&#13;&#10;&#9;&#9;&#9;&#9;return null;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#13;&#10;&#9;static public float RichiediRimborso(int codice, String id, String psw) {&#13;&#10;&#9;&#9;ProgrammaCashBack prog=VerificaProgramma(codice);&#13;&#10;&#9;&#9;Registrazione reg = prog.VerificaRegistrazione(id, psw);&#13;&#10;&#9;&#9;float rimb = prog.CalcolaRimborso(reg);&#13;&#10;&#9;&#9;return rimb;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;&#13;&#10;&#9;static public String VerificaRimborso(int codice, String id, String psw) {&#13;&#10;&#9;&#9;ProgrammaCashBack prog=VerificaProgramma(codice);&#13;&#10;&#9;&#9;if(prog==null) return &quot;Programma di CashBack non esistente&quot;;&#13;&#10;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;Registrazione reg = prog.VerificaRegistrazione(id, psw);&#13;&#10;&#9;&#9;&#9;if(reg==null) return &quot;Registrazione non esistente&quot;;&#13;&#10;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;if(prog.VerificaData()==false) return &quot;Il programma non è ancora finito&quot;;&#13;&#10;&#9;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;&#9;boolean numeroMin=prog.VerificaAcquisti(reg);&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(numeroMin==false) return &quot;Non hai fatto abbastanza acquisti&quot;;&#13;&#10;&#9;&#9;&#9;&#9;&#9;else {&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;return &quot;Inserimento dei dati valido, richiesta in corso&quot;;&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#9;private ApplicazioneCashBack(){&#13;&#10;&#9;&#9;programmi = new ArrayList&lt;ProgrammaCashBack&gt;();&#13;&#10;&#9;&#9;ProgrammaCashBack PCB1 = new ProgrammaCashBack(100000);&#13;&#10;&#9;&#9;ProgrammaCashBack PCB2 = new ProgrammaCashBack(100001);&#13;&#10;&#9;&#9;ProgrammaCashBack PCB3 = new ProgrammaCashBack(100002);&#13;&#10;&#9;&#9;ApplicazioneCashBack.programmi.add(PCB1);&#13;&#10;&#9;&#9;ApplicazioneCashBack.programmi.add(PCB2);&#13;&#10;&#9;&#9;ApplicazioneCashBack.programmi.add(PCB3);&#13;&#10;&#9;}&#13;&#10;}" Filename="ApplicazioneCashBack.java" Intrnl_Id="4"/>
+        <SrcFile Content="package Entity;&#13;&#10;&#13;&#10;import java.text.DateFormat;&#13;&#10;import java.text.ParseException;&#13;&#10;import java.text.SimpleDateFormat;&#13;&#10;import java.util.*;&#13;&#10;&#13;&#10;&#13;&#10;import Stub.StubProgrammaCashBack;&#13;&#10;public class ProgrammaCashBack {&#13;&#10;&#13;&#10;&#9;private ArrayList&lt;Registrazione&gt; registrazioni;&#13;&#10;&#9;private int codice;&#13;&#10;&#9;private String dataFine;&#13;&#10;&#9;private int numeroMinimo;&#13;&#10;&#9;private int percentuale;&#13;&#10;&#9;private int tetto;&#13;&#10;&#13;&#10;&#13;&#10;&#9;public Registrazione VerificaRegistrazione(String id, String psw) {&#13;&#10;&#9;&#9;int i=0;&#13;&#10;&#9;&#9;while(i&lt;registrazioni.size()){&#13;&#10;&#9;&#9;&#9;if ((registrazioni.get(i).getId().equals(id)) &amp;&amp; (registrazioni.get(i).getPassword().equals(psw))) {&#13;&#10;&#9;&#9;&#9;&#9;return registrazioni.get(i);&#13;&#10;&#9;&#9;&#9;} else {&#13;&#10;&#9;&#9;&#9;&#9;i++;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return null;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public float CalcolaRimborso(Registrazione reg) {&#13;&#10;&#9;&#9;int importotale = reg.CalcolaImporto();&#13;&#10;&#9;&#9;float rimb = (importotale*this.percentuale)/100;&#13;&#10;&#9;&#9;if(rimb&gt;=tetto) rimb=tetto;&#13;&#10;&#9;&#9;reg.setRimborso(rimb);&#13;&#10;&#9;&#9;return rimb;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public boolean VerificaData() {&#13;&#10;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#9;DateFormat df = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);&#13;&#10;&#9;&#9;&#9;Calendar cal  = Calendar.getInstance();&#13;&#10;&#9;&#9;&#9;try {&#13;&#10;&#9;&#9;&#9;&#9;cal.setTime(df.parse(this.dataFine));&#13;&#10;&#9;&#9;&#9;} catch (ParseException e) {&#13;&#10;&#9;&#9;&#9;&#9;e.printStackTrace();&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#9;Calendar today = Calendar.getInstance();&#13;&#10;&#9;&#9;&#9;if(today.compareTo(cal)&gt;0) return true;&#13;&#10;&#9;&#9;&#9;&#13;&#10;&#9;&#9;    else return false;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;public boolean VerificaAcquisti(Registrazione reg) {&#13;&#10;&#9;&#9;int cont = reg.ContaNumeroAcquisti();&#13;&#10;&#9;&#9;if(cont&gt;=numeroMinimo) return true;&#13;&#10;&#9;&#9;else return false;&#13;&#10;&#9;}&#13;&#10;&#9;ProgrammaCashBack(int codice){&#13;&#10;&#9;&#9;StubProgrammaCashBack StPB = new StubProgrammaCashBack(codice);&#13;&#10;&#9;&#9;this.codice=StPB.getCodice();&#13;&#10;&#9;&#9;this.dataFine=StPB.getDataFine();&#13;&#10;&#9;&#9;this.numeroMinimo=StPB.getNumeroMinimo();&#13;&#10;&#9;&#9;this.percentuale=StPB.getPercentuale();&#13;&#10;&#9;&#9;this.tetto=StPB.getTetto();&#13;&#10;&#9;&#9;registrazioni = new ArrayList&lt;Registrazione&gt;();&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;for(int i=0;i&lt;StPB.getRegistrazioni().size();i++) {&#13;&#10;&#9;&#9;&#9;Registrazione R = new Registrazione();&#13;&#10;&#9;&#9;&#9;for(int j=0;j&lt;StPB.getRegistrazioni().get(i).getAcquisti().size();j++) {&#13;&#10;&#9;&#9;&#9;&#9;Acquisto A = new Acquisto();&#13;&#10;&#9;&#9;&#9;&#9;A.setData(StPB.getRegistrazioni().get(i).getAcquisti().get(j).getData());&#13;&#10;&#9;&#9;&#9;&#9;A.setImporto(StPB.getRegistrazioni().get(i).getAcquisti().get(j).getImporto());&#13;&#10;&#9;&#9;&#9;&#9;R.getAcquisti().add(A);&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;R.setId(StPB.getRegistrazioni().get(i).getId());&#13;&#10;&#9;&#9;&#9;R.setPassword(StPB.getRegistrazioni().get(i).getPassword());&#13;&#10;&#9;&#9;&#9;registrazioni.add(R);&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public int getCodice() {&#13;&#10;&#9;&#9;return codice;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}" Filename="ProgrammaCashBack.java" Intrnl_Id="5"/>
+    </SrcFileList>
+    <CritList>
+        <CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.QMOCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.SynchronizedStatementCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+    </CritList>
+    <BoolOpList>
+        <BoolOp Arity="2" Intrnl_Id="6" Name="conditional and (&amp;&amp;)">
+            <BoolAssgnmntBoolMapList>
+                <MapEntry BoolAssgnmnt="02" Value="false"/>
+                <MapEntry BoolAssgnmnt="10" Value="false"/>
+                <MapEntry BoolAssgnmnt="11" Value="true"/>
+            </BoolAssgnmntBoolMapList>
+        </BoolOp>
+        <BoolOp Arity="2" Intrnl_Id="7" Name="conditional or (||)">
+            <BoolAssgnmntBoolMapList>
+                <MapEntry BoolAssgnmnt="00" Value="false"/>
+                <MapEntry BoolAssgnmnt="01" Value="true"/>
+                <MapEntry BoolAssgnmnt="12" Value="true"/>
+            </BoolAssgnmntBoolMapList>
+        </BoolOp>
+        <BoolOp Arity="1" Intrnl_Id="8" Name="not (!)">
+            <BoolAssgnmntBoolMapList>
+                <MapEntry BoolAssgnmnt="1" Value="false"/>
+                <MapEntry BoolAssgnmnt="0" Value="true"/>
+            </BoolAssgnmntBoolMapList>
+        </BoolOp>
+    </BoolOpList>
+    <HierarchyLvlTypeList>
+        <HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="9"/>
+        <HierarchyLvlType EnglishName="anonymous class" IntrnlName="class" Intrnl_Id="10"/>
+        <HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="11"/>
+        <HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="12"/>
+        <HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="13"/>
+    </HierarchyLvlTypeList>
+    <MASTRoot>
+        <HierarchyLvl HierarchyLvlId="122" HierarchyLvlTypeId="13" Intrnl_Id="14" Name="default package">
+            <Header/>
+            <LocList/>
+            <HierarchyLvl HierarchyLvlId="119" HierarchyLvlTypeId="9" Intrnl_Id="15" Name="Boundary">
+                <Header/>
+                <LocList/>
+                <HierarchyLvl HierarchyLvlId="96" HierarchyLvlTypeId="12" Intrnl_Id="16" Name="RichiestaRimborsoFormWindow">
+                    <Header>
+                        <Loc EndOffset="692" SrcFileId="1" StartOffset="637"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="5503" SrcFileId="1" StartOffset="637"/>
+                    </LocList>
+                    <StmntSeq Intrnl_Id="17">
+                        <LocList>
+                            <Loc EndOffset="747" SrcFileId="1" StartOffset="699"/>
+                        </LocList>
+                        <BasicStmnt CovItemId="S1" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="18">
+                            <LocList>
+                                <Loc EndOffset="747" SrcFileId="1" StartOffset="699"/>
+                            </LocList>
+                        </BasicStmnt>
+                    </StmntSeq>
+                    <HierarchyLvl HierarchyLvlId="88" HierarchyLvlTypeId="11" Intrnl_Id="19" Name="main">
+                        <Header>
+                            <Loc EndOffset="1081" SrcFileId="1" StartOffset="1043"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="1348" SrcFileId="1" StartOffset="1043"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="20">
+                            <LocList>
+                                <Loc EndOffset="1110" SrcFileId="1" StartOffset="1087"/>
+                                <Loc EndOffset="1344" SrcFileId="1" StartOffset="1342"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S2" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="21">
+                                <LocList>
+                                    <Loc EndOffset="1110" SrcFileId="1" StartOffset="1087"/>
+                                    <Loc EndOffset="1344" SrcFileId="1" StartOffset="1342"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                        <HierarchyLvl HierarchyLvlId="87" HierarchyLvlTypeId="10" Intrnl_Id="22" Name="Runnable">
+                            <Header>
+                                <Loc EndOffset="1124" SrcFileId="1" StartOffset="1114"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="1342" SrcFileId="1" StartOffset="1110"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="86" HierarchyLvlTypeId="11" Intrnl_Id="23" Name="run">
+                                <Header>
+                                    <Loc EndOffset="1148" SrcFileId="1" StartOffset="1131"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="1337" SrcFileId="1" StartOffset="1131"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="24">
+                                    <LocList>
+                                        <Loc EndOffset="1238" SrcFileId="1" StartOffset="1168"/>
+                                        <Loc EndOffset="1268" SrcFileId="1" StartOffset="1245"/>
+                                        <Loc EndOffset="1331" SrcFileId="1" StartOffset="1156"/>
+                                    </LocList>
+                                    <BasicStmnt CovItemId="S4" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="25">
+                                        <LocList>
+                                            <Loc EndOffset="1238" SrcFileId="1" StartOffset="1168"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S5" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="26">
+                                        <LocList>
+                                            <Loc EndOffset="1268" SrcFileId="1" StartOffset="1245"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <CondStmnt CovItemId="S3" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="27">
+                                        <Branch CovItemId="B1" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="true" Intrnl_Id="28">
+                                            <Cond/>
+                                            <LocList/>
+                                            <StmntSeq Intrnl_Id="29">
+                                                <LocList/>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B2" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="30">
+                                            <Cond>
+                                                <Loc EndOffset="1295" SrcFileId="1" StartOffset="1276"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="1331" SrcFileId="1" StartOffset="1296"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="31">
+                                                <LocList>
+                                                    <Loc EndOffset="1324" SrcFileId="1" StartOffset="1304"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S6" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="32">
+                                                    <LocList>
+                                                        <Loc EndOffset="1324" SrcFileId="1" StartOffset="1304"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="1159" SrcFileId="1" StartOffset="1156"/>
+                                        <LocList>
+                                            <Loc EndOffset="1331" SrcFileId="1" StartOffset="1156"/>
+                                        </LocList>
+                                    </CondStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="95" HierarchyLvlTypeId="11" Intrnl_Id="33" Name="RichiestaRimborsoFormWindow">
+                        <Header>
+                            <Loc EndOffset="1391" SrcFileId="1" StartOffset="1355"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="5500" SrcFileId="1" StartOffset="1355"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="34">
+                            <LocList>
+                                <Loc EndOffset="1449" SrcFileId="1" StartOffset="1397"/>
+                                <Loc EndOffset="1571" SrcFileId="1" StartOffset="1453"/>
+                                <Loc EndOffset="1622" SrcFileId="1" StartOffset="1575"/>
+                                <Loc EndOffset="1656" SrcFileId="1" StartOffset="1626"/>
+                                <Loc EndOffset="1687" SrcFileId="1" StartOffset="1660"/>
+                                <Loc EndOffset="1742" SrcFileId="1" StartOffset="1691"/>
+                                <Loc EndOffset="1774" SrcFileId="1" StartOffset="1746"/>
+                                <Loc EndOffset="1806" SrcFileId="1" StartOffset="1778"/>
+                                <Loc EndOffset="1880" SrcFileId="1" StartOffset="1814"/>
+                                <Loc EndOffset="1967" SrcFileId="1" StartOffset="1884"/>
+                                <Loc EndOffset="2012" SrcFileId="1" StartOffset="1971"/>
+                                <Loc EndOffset="2748" SrcFileId="1" StartOffset="2746"/>
+                                <Loc EndOffset="2804" SrcFileId="1" StartOffset="2752"/>
+                                <Loc EndOffset="2848" SrcFileId="1" StartOffset="2808"/>
+                                <Loc EndOffset="2886" SrcFileId="1" StartOffset="2856"/>
+                                <Loc EndOffset="2939" SrcFileId="1" StartOffset="2890"/>
+                                <Loc EndOffset="2975" SrcFileId="1" StartOffset="2943"/>
+                                <Loc EndOffset="3002" SrcFileId="1" StartOffset="2979"/>
+                                <Loc EndOffset="3047" SrcFileId="1" StartOffset="3010"/>
+                                <Loc EndOffset="3106" SrcFileId="1" StartOffset="3051"/>
+                                <Loc EndOffset="3149" SrcFileId="1" StartOffset="3110"/>
+                                <Loc EndOffset="3182" SrcFileId="1" StartOffset="3153"/>
+                                <Loc EndOffset="3216" SrcFileId="1" StartOffset="3190"/>
+                                <Loc EndOffset="3254" SrcFileId="1" StartOffset="3220"/>
+                                <Loc EndOffset="3282" SrcFileId="1" StartOffset="3258"/>
+                                <Loc EndOffset="3308" SrcFileId="1" StartOffset="3286"/>
+                                <Loc EndOffset="3344" SrcFileId="1" StartOffset="3316"/>
+                                <Loc EndOffset="3403" SrcFileId="1" StartOffset="3348"/>
+                                <Loc EndOffset="3473" SrcFileId="1" StartOffset="3407"/>
+                                <Loc EndOffset="3515" SrcFileId="1" StartOffset="3477"/>
+                                <Loc EndOffset="3558" SrcFileId="1" StartOffset="3519"/>
+                                <Loc EndOffset="3591" SrcFileId="1" StartOffset="3562"/>
+                                <Loc EndOffset="3623" SrcFileId="1" StartOffset="3595"/>
+                                <Loc EndOffset="3661" SrcFileId="1" StartOffset="3631"/>
+                                <Loc EndOffset="3703" SrcFileId="1" StartOffset="3665"/>
+                                <Loc EndOffset="3735" SrcFileId="1" StartOffset="3707"/>
+                                <Loc EndOffset="3764" SrcFileId="1" StartOffset="3739"/>
+                                <Loc EndOffset="3839" SrcFileId="1" StartOffset="3772"/>
+                                <Loc EndOffset="3891" SrcFileId="1" StartOffset="3843"/>
+                                <Loc EndOffset="3933" SrcFileId="1" StartOffset="3895"/>
+                                <Loc EndOffset="4001" SrcFileId="1" StartOffset="3937"/>
+                                <Loc EndOffset="4069" SrcFileId="1" StartOffset="4009"/>
+                                <Loc EndOffset="4105" SrcFileId="1" StartOffset="4073"/>
+                                <Loc EndOffset="4168" SrcFileId="1" StartOffset="4109"/>
+                                <Loc EndOffset="4205" SrcFileId="1" StartOffset="4172"/>
+                                <Loc EndOffset="4434" SrcFileId="1" StartOffset="4432"/>
+                                <Loc EndOffset="4482" SrcFileId="1" StartOffset="4438"/>
+                                <Loc EndOffset="4518" SrcFileId="1" StartOffset="4486"/>
+                                <Loc EndOffset="4563" SrcFileId="1" StartOffset="4526"/>
+                                <Loc EndOffset="4596" SrcFileId="1" StartOffset="4567"/>
+                                <Loc EndOffset="4631" SrcFileId="1" StartOffset="4600"/>
+                                <Loc EndOffset="4677" SrcFileId="1" StartOffset="4635"/>
+                                <Loc EndOffset="4712" SrcFileId="1" StartOffset="4681"/>
+                                <Loc EndOffset="4735" SrcFileId="1" StartOffset="4720"/>
+                                <Loc EndOffset="5419" SrcFileId="1" StartOffset="5418"/>
+                                <Loc EndOffset="5462" SrcFileId="1" StartOffset="5423"/>
+                                <Loc EndOffset="5496" SrcFileId="1" StartOffset="5466"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S7" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="35">
+                                <LocList>
+                                    <Loc EndOffset="1449" SrcFileId="1" StartOffset="1397"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S8" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="36">
+                                <LocList>
+                                    <Loc EndOffset="1571" SrcFileId="1" StartOffset="1453"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S9" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="37">
+                                <LocList>
+                                    <Loc EndOffset="1622" SrcFileId="1" StartOffset="1575"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S10" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="38">
+                                <LocList>
+                                    <Loc EndOffset="1656" SrcFileId="1" StartOffset="1626"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S11" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="39">
+                                <LocList>
+                                    <Loc EndOffset="1687" SrcFileId="1" StartOffset="1660"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S12" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="40">
+                                <LocList>
+                                    <Loc EndOffset="1742" SrcFileId="1" StartOffset="1691"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S13" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="41">
+                                <LocList>
+                                    <Loc EndOffset="1774" SrcFileId="1" StartOffset="1746"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S14" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="42">
+                                <LocList>
+                                    <Loc EndOffset="1806" SrcFileId="1" StartOffset="1778"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S15" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="43">
+                                <LocList>
+                                    <Loc EndOffset="1880" SrcFileId="1" StartOffset="1814"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S16" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="44">
+                                <LocList>
+                                    <Loc EndOffset="1967" SrcFileId="1" StartOffset="1884"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S17" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="45">
+                                <LocList>
+                                    <Loc EndOffset="2012" SrcFileId="1" StartOffset="1971"/>
+                                    <Loc EndOffset="2748" SrcFileId="1" StartOffset="2746"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S27" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="46">
+                                <LocList>
+                                    <Loc EndOffset="2804" SrcFileId="1" StartOffset="2752"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S28" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="47">
+                                <LocList>
+                                    <Loc EndOffset="2848" SrcFileId="1" StartOffset="2808"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S29" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="48">
+                                <LocList>
+                                    <Loc EndOffset="2886" SrcFileId="1" StartOffset="2856"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S30" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="49">
+                                <LocList>
+                                    <Loc EndOffset="2939" SrcFileId="1" StartOffset="2890"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S31" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="50">
+                                <LocList>
+                                    <Loc EndOffset="2975" SrcFileId="1" StartOffset="2943"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S32" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="51">
+                                <LocList>
+                                    <Loc EndOffset="3002" SrcFileId="1" StartOffset="2979"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S33" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="52">
+                                <LocList>
+                                    <Loc EndOffset="3047" SrcFileId="1" StartOffset="3010"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S34" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="53">
+                                <LocList>
+                                    <Loc EndOffset="3106" SrcFileId="1" StartOffset="3051"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S35" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="54">
+                                <LocList>
+                                    <Loc EndOffset="3149" SrcFileId="1" StartOffset="3110"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S36" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="55">
+                                <LocList>
+                                    <Loc EndOffset="3182" SrcFileId="1" StartOffset="3153"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S37" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="56">
+                                <LocList>
+                                    <Loc EndOffset="3216" SrcFileId="1" StartOffset="3190"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S38" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="57">
+                                <LocList>
+                                    <Loc EndOffset="3254" SrcFileId="1" StartOffset="3220"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S39" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="58">
+                                <LocList>
+                                    <Loc EndOffset="3282" SrcFileId="1" StartOffset="3258"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S40" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="59">
+                                <LocList>
+                                    <Loc EndOffset="3308" SrcFileId="1" StartOffset="3286"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S41" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="60">
+                                <LocList>
+                                    <Loc EndOffset="3344" SrcFileId="1" StartOffset="3316"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S42" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="61">
+                                <LocList>
+                                    <Loc EndOffset="3403" SrcFileId="1" StartOffset="3348"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S43" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="62">
+                                <LocList>
+                                    <Loc EndOffset="3473" SrcFileId="1" StartOffset="3407"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S44" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="63">
+                                <LocList>
+                                    <Loc EndOffset="3515" SrcFileId="1" StartOffset="3477"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S45" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="64">
+                                <LocList>
+                                    <Loc EndOffset="3558" SrcFileId="1" StartOffset="3519"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S46" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="65">
+                                <LocList>
+                                    <Loc EndOffset="3591" SrcFileId="1" StartOffset="3562"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S47" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="66">
+                                <LocList>
+                                    <Loc EndOffset="3623" SrcFileId="1" StartOffset="3595"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S48" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="67">
+                                <LocList>
+                                    <Loc EndOffset="3661" SrcFileId="1" StartOffset="3631"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S49" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="68">
+                                <LocList>
+                                    <Loc EndOffset="3703" SrcFileId="1" StartOffset="3665"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S50" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="69">
+                                <LocList>
+                                    <Loc EndOffset="3735" SrcFileId="1" StartOffset="3707"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S51" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="70">
+                                <LocList>
+                                    <Loc EndOffset="3764" SrcFileId="1" StartOffset="3739"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S52" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="71">
+                                <LocList>
+                                    <Loc EndOffset="3839" SrcFileId="1" StartOffset="3772"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S53" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="72">
+                                <LocList>
+                                    <Loc EndOffset="3891" SrcFileId="1" StartOffset="3843"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S54" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="73">
+                                <LocList>
+                                    <Loc EndOffset="3933" SrcFileId="1" StartOffset="3895"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S55" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="74">
+                                <LocList>
+                                    <Loc EndOffset="4001" SrcFileId="1" StartOffset="3937"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S56" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="75">
+                                <LocList>
+                                    <Loc EndOffset="4069" SrcFileId="1" StartOffset="4009"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S57" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="76">
+                                <LocList>
+                                    <Loc EndOffset="4105" SrcFileId="1" StartOffset="4073"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S58" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="77">
+                                <LocList>
+                                    <Loc EndOffset="4168" SrcFileId="1" StartOffset="4109"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S59" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="78">
+                                <LocList>
+                                    <Loc EndOffset="4205" SrcFileId="1" StartOffset="4172"/>
+                                    <Loc EndOffset="4434" SrcFileId="1" StartOffset="4432"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S63" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="79">
+                                <LocList>
+                                    <Loc EndOffset="4482" SrcFileId="1" StartOffset="4438"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S64" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="80">
+                                <LocList>
+                                    <Loc EndOffset="4518" SrcFileId="1" StartOffset="4486"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S65" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="81">
+                                <LocList>
+                                    <Loc EndOffset="4563" SrcFileId="1" StartOffset="4526"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S66" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="82">
+                                <LocList>
+                                    <Loc EndOffset="4596" SrcFileId="1" StartOffset="4567"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S67" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="83">
+                                <LocList>
+                                    <Loc EndOffset="4631" SrcFileId="1" StartOffset="4600"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S68" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="84">
+                                <LocList>
+                                    <Loc EndOffset="4677" SrcFileId="1" StartOffset="4635"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S69" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="85">
+                                <LocList>
+                                    <Loc EndOffset="4712" SrcFileId="1" StartOffset="4681"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S70" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="86">
+                                <LocList>
+                                    <Loc EndOffset="4735" SrcFileId="1" StartOffset="4720"/>
+                                    <Loc EndOffset="5419" SrcFileId="1" StartOffset="5418"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S80" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="87">
+                                <LocList>
+                                    <Loc EndOffset="5462" SrcFileId="1" StartOffset="5423"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S81" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="88">
+                                <LocList>
+                                    <Loc EndOffset="5496" SrcFileId="1" StartOffset="5466"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                        <HierarchyLvl HierarchyLvlId="90" HierarchyLvlTypeId="10" Intrnl_Id="89" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="2032" SrcFileId="1" StartOffset="2016"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="2746" SrcFileId="1" StartOffset="2012"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="89" HierarchyLvlTypeId="11" Intrnl_Id="90" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="2081" SrcFileId="1" StartOffset="2039"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="2741" SrcFileId="1" StartOffset="2039"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="91">
+                                    <LocList>
+                                        <Loc EndOffset="2735" SrcFileId="1" StartOffset="2157"/>
+                                    </LocList>
+                                    <CondStmnt CovItemId="S18" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="92">
+                                        <Branch CovItemId="B3" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="93">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="2387" SrcFileId="1" StartOffset="2282"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="94">
+                                                <LocList>
+                                                    <Loc EndOffset="2318" SrcFileId="1" StartOffset="2290"/>
+                                                    <Loc EndOffset="2380" SrcFileId="1" StartOffset="2325"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S19" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="95">
+                                                    <LocList>
+                                                        <Loc EndOffset="2318" SrcFileId="1" StartOffset="2290"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S20" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="96">
+                                                    <LocList>
+                                                        <Loc EndOffset="2380" SrcFileId="1" StartOffset="2325"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B4" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="97">
+                                            <Cond>
+                                                <Loc EndOffset="2397" SrcFileId="1" StartOffset="2393"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="2735" SrcFileId="1" StartOffset="2398"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="98">
+                                                <LocList>
+                                                    <Loc EndOffset="2453" SrcFileId="1" StartOffset="2405"/>
+                                                    <Loc EndOffset="2488" SrcFileId="1" StartOffset="2459"/>
+                                                    <Loc EndOffset="2556" SrcFileId="1" StartOffset="2494"/>
+                                                    <Loc EndOffset="2660" SrcFileId="1" StartOffset="2562"/>
+                                                    <Loc EndOffset="2694" SrcFileId="1" StartOffset="2666"/>
+                                                    <Loc EndOffset="2728" SrcFileId="1" StartOffset="2700"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S21" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="99">
+                                                    <LocList>
+                                                        <Loc EndOffset="2453" SrcFileId="1" StartOffset="2405"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S22" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="100">
+                                                    <LocList>
+                                                        <Loc EndOffset="2488" SrcFileId="1" StartOffset="2459"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S23" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="101">
+                                                    <LocList>
+                                                        <Loc EndOffset="2556" SrcFileId="1" StartOffset="2494"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S24" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="102">
+                                                    <LocList>
+                                                        <Loc EndOffset="2660" SrcFileId="1" StartOffset="2562"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S25" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="103">
+                                                    <LocList>
+                                                        <Loc EndOffset="2694" SrcFileId="1" StartOffset="2666"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S26" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="104">
+                                                    <LocList>
+                                                        <Loc EndOffset="2728" SrcFileId="1" StartOffset="2700"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="2159" SrcFileId="1" StartOffset="2157"/>
+                                        <LocList>
+                                            <Loc EndOffset="2735" SrcFileId="1" StartOffset="2157"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C1" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="105">
+                                            <OpTerm BooleanOpId="7" Intrnl_Id="106">
+                                                <OpTerm BooleanOpId="7" Intrnl_Id="107">
+                                                    <BasicBoolTerm Intrnl_Id="108">
+                                                        <LocList>
+                                                            <Loc EndOffset="2191" SrcFileId="1" StartOffset="2160"/>
+                                                        </LocList>
+                                                    </BasicBoolTerm>
+                                                    <BasicBoolTerm Intrnl_Id="109">
+                                                        <LocList>
+                                                            <Loc EndOffset="2222" SrcFileId="1" StartOffset="2195"/>
+                                                        </LocList>
+                                                    </BasicBoolTerm>
+                                                    <LocList>
+                                                        <Loc EndOffset="2194" SrcFileId="1" StartOffset="2192"/>
+                                                    </LocList>
+                                                </OpTerm>
+                                                <BasicBoolTerm Intrnl_Id="110">
+                                                    <LocList>
+                                                        <Loc EndOffset="2280" SrcFileId="1" StartOffset="2226"/>
+                                                    </LocList>
+                                                </BasicBoolTerm>
+                                                <LocList>
+                                                    <Loc EndOffset="2225" SrcFileId="1" StartOffset="2223"/>
+                                                </LocList>
+                                            </OpTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                        <HierarchyLvl HierarchyLvlId="92" HierarchyLvlTypeId="10" Intrnl_Id="111" Name="ActionListener">
+                            <Header>
+                                <Loc EndOffset="4225" SrcFileId="1" StartOffset="4209"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="4432" SrcFileId="1" StartOffset="4205"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="91" HierarchyLvlTypeId="11" Intrnl_Id="112" Name="actionPerformed">
+                                <Header>
+                                    <Loc EndOffset="4274" SrcFileId="1" StartOffset="4232"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="4427" SrcFileId="1" StartOffset="4232"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="113">
+                                    <LocList>
+                                        <Loc EndOffset="4421" SrcFileId="1" StartOffset="4282"/>
+                                    </LocList>
+                                    <CondStmnt CovItemId="S60" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="114">
+                                        <Branch CovItemId="B5" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="115">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="4364" SrcFileId="1" StartOffset="4314"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="116">
+                                                <LocList>
+                                                    <Loc EndOffset="4357" SrcFileId="1" StartOffset="4322"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S61" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="117">
+                                                    <LocList>
+                                                        <Loc EndOffset="4357" SrcFileId="1" StartOffset="4322"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B6" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="118">
+                                            <Cond>
+                                                <Loc EndOffset="4374" SrcFileId="1" StartOffset="4370"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="4421" SrcFileId="1" StartOffset="4375"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="119">
+                                                <LocList>
+                                                    <Loc EndOffset="4414" SrcFileId="1" StartOffset="4383"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S62" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="120">
+                                                    <LocList>
+                                                        <Loc EndOffset="4414" SrcFileId="1" StartOffset="4383"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="4284" SrcFileId="1" StartOffset="4282"/>
+                                        <LocList>
+                                            <Loc EndOffset="4421" SrcFileId="1" StartOffset="4282"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C2" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="121">
+                                            <BasicBoolTerm Intrnl_Id="122">
+                                                <LocList>
+                                                    <Loc EndOffset="4312" SrcFileId="1" StartOffset="4285"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                        <HierarchyLvl HierarchyLvlId="94" HierarchyLvlTypeId="10" Intrnl_Id="123" Name="JPanel">
+                            <Header>
+                                <Loc EndOffset="4747" SrcFileId="1" StartOffset="4739"/>
+                            </Header>
+                            <LocList>
+                                <Loc EndOffset="5418" SrcFileId="1" StartOffset="4735"/>
+                            </LocList>
+                            <HierarchyLvl HierarchyLvlId="93" HierarchyLvlTypeId="11" Intrnl_Id="124" Name="paintComponent">
+                                <Header>
+                                    <Loc EndOffset="4864" SrcFileId="1" StartOffset="4809"/>
+                                </Header>
+                                <LocList>
+                                    <Loc EndOffset="5408" SrcFileId="1" StartOffset="4809"/>
+                                </LocList>
+                                <StmntSeq Intrnl_Id="125">
+                                    <LocList>
+                                        <Loc EndOffset="5395" SrcFileId="1" StartOffset="4881"/>
+                                    </LocList>
+                                    <CondStmnt CovItemId="S71" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="126">
+                                        <Branch CovItemId="B7" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="127">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="5330" SrcFileId="1" StartOffset="4910"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="128">
+                                                <LocList>
+                                                    <Loc EndOffset="4951" SrcFileId="1" StartOffset="4932"/>
+                                                    <Loc EndOffset="4989" SrcFileId="1" StartOffset="4969"/>
+                                                    <Loc EndOffset="5082" SrcFileId="1" StartOffset="5007"/>
+                                                    <Loc EndOffset="5131" SrcFileId="1" StartOffset="5100"/>
+                                                    <Loc EndOffset="5237" SrcFileId="1" StartOffset="5149"/>
+                                                    <Loc EndOffset="5271" SrcFileId="1" StartOffset="5255"/>
+                                                    <Loc EndOffset="5314" SrcFileId="1" StartOffset="5289"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S72" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="129">
+                                                    <LocList>
+                                                        <Loc EndOffset="4951" SrcFileId="1" StartOffset="4932"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S73" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="130">
+                                                    <LocList>
+                                                        <Loc EndOffset="4989" SrcFileId="1" StartOffset="4969"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S74" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="131">
+                                                    <LocList>
+                                                        <Loc EndOffset="5082" SrcFileId="1" StartOffset="5007"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S75" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="132">
+                                                    <LocList>
+                                                        <Loc EndOffset="5131" SrcFileId="1" StartOffset="5100"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S76" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="133">
+                                                    <LocList>
+                                                        <Loc EndOffset="5237" SrcFileId="1" StartOffset="5149"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S77" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="134">
+                                                    <LocList>
+                                                        <Loc EndOffset="5271" SrcFileId="1" StartOffset="5255"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                                <BasicStmnt CovItemId="S78" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="135">
+                                                    <LocList>
+                                                        <Loc EndOffset="5314" SrcFileId="1" StartOffset="5289"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B8" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Implct="false" Intrnl_Id="136">
+                                            <Cond>
+                                                <Loc EndOffset="5335" SrcFileId="1" StartOffset="5331"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="5395" SrcFileId="1" StartOffset="5336"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="137">
+                                                <LocList>
+                                                    <Loc EndOffset="5379" SrcFileId="1" StartOffset="5355"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S79" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="138">
+                                                    <LocList>
+                                                        <Loc EndOffset="5379" SrcFileId="1" StartOffset="5355"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="4883" SrcFileId="1" StartOffset="4881"/>
+                                        <LocList>
+                                            <Loc EndOffset="5395" SrcFileId="1" StartOffset="4881"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C3" CovItemPrefix="Boundary.RichiestaRimborsoFormWindow.java" Intrnl_Id="139">
+                                            <BasicBoolTerm Intrnl_Id="140">
+                                                <LocList>
+                                                    <Loc EndOffset="4908" SrcFileId="1" StartOffset="4885"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                </StmntSeq>
+                            </HierarchyLvl>
+                        </HierarchyLvl>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+            </HierarchyLvl>
+            <HierarchyLvl HierarchyLvlId="120" HierarchyLvlTypeId="9" Intrnl_Id="141" Name="Control">
+                <Header/>
+                <LocList/>
+                <HierarchyLvl HierarchyLvlId="100" HierarchyLvlTypeId="12" Intrnl_Id="142" Name="RichiestaRimborsoController">
+                    <Header>
+                        <Loc EndOffset="60" SrcFileId="2" StartOffset="20"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="845" SrcFileId="2" StartOffset="20"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="97" HierarchyLvlTypeId="11" Intrnl_Id="143" Name="RichiestaRimborsoHandler">
+                        <Header>
+                            <Loc EndOffset="145" SrcFileId="2" StartOffset="65"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="436" SrcFileId="2" StartOffset="65"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="144">
+                            <LocList>
+                                <Loc EndOffset="202" SrcFileId="2" StartOffset="151"/>
+                                <Loc EndOffset="413" SrcFileId="2" StartOffset="206"/>
+                                <Loc EndOffset="432" SrcFileId="2" StartOffset="417"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="145">
+                                <LocList>
+                                    <Loc EndOffset="202" SrcFileId="2" StartOffset="151"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <CondStmnt CovItemId="S2" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="146">
+                                <Branch CovItemId="B1" CovItemPrefix="Control.RichiestaRimborsoController.java" Implct="false" Intrnl_Id="147">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="413" SrcFileId="2" StartOffset="276"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="148">
+                                        <LocList>
+                                            <Loc EndOffset="408" SrcFileId="2" StartOffset="282"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S3" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="149">
+                                            <LocList>
+                                                <Loc EndOffset="408" SrcFileId="2" StartOffset="282"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B2" CovItemPrefix="Control.RichiestaRimborsoController.java" Implct="true" Intrnl_Id="150">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="151">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="208" SrcFileId="2" StartOffset="206"/>
+                                <LocList>
+                                    <Loc EndOffset="413" SrcFileId="2" StartOffset="206"/>
+                                </LocList>
+                                <RootTerm CovItemId="C1" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="152">
+                                    <BasicBoolTerm Intrnl_Id="153">
+                                        <LocList>
+                                            <Loc EndOffset="274" SrcFileId="2" StartOffset="209"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                            <BasicStmnt CovItemId="S4" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="154">
+                                <LocList>
+                                    <Loc EndOffset="432" SrcFileId="2" StartOffset="417"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="98" HierarchyLvlTypeId="11" Intrnl_Id="155" Name="RichiestaRimborso">
+                        <Header>
+                            <Loc EndOffset="517" SrcFileId="2" StartOffset="444"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="614" SrcFileId="2" StartOffset="444"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="156">
+                            <LocList>
+                                <Loc EndOffset="595" SrcFileId="2" StartOffset="523"/>
+                                <Loc EndOffset="610" SrcFileId="2" StartOffset="599"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S5" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="157">
+                                <LocList>
+                                    <Loc EndOffset="595" SrcFileId="2" StartOffset="523"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S6" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="158">
+                                <LocList>
+                                    <Loc EndOffset="610" SrcFileId="2" StartOffset="599"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="99" HierarchyLvlTypeId="11" Intrnl_Id="159" Name="VerificaRimborso">
+                        <Header>
+                            <Loc EndOffset="695" SrcFileId="2" StartOffset="622"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="840" SrcFileId="2" StartOffset="622"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="160">
+                            <LocList>
+                                <Loc EndOffset="736" SrcFileId="2" StartOffset="701"/>
+                                <Loc EndOffset="817" SrcFileId="2" StartOffset="740"/>
+                                <Loc EndOffset="836" SrcFileId="2" StartOffset="821"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S7" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="161">
+                                <LocList>
+                                    <Loc EndOffset="736" SrcFileId="2" StartOffset="701"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S8" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="162">
+                                <LocList>
+                                    <Loc EndOffset="817" SrcFileId="2" StartOffset="740"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S9" CovItemPrefix="Control.RichiestaRimborsoController.java" Intrnl_Id="163">
+                                <LocList>
+                                    <Loc EndOffset="836" SrcFileId="2" StartOffset="821"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+            </HierarchyLvl>
+            <HierarchyLvl HierarchyLvlId="121" HierarchyLvlTypeId="9" Intrnl_Id="164" Name="Entity">
+                <Header/>
+                <LocList/>
+                <HierarchyLvl HierarchyLvlId="105" HierarchyLvlTypeId="12" Intrnl_Id="165" Name="Acquisto">
+                    <Header>
+                        <Loc EndOffset="40" SrcFileId="3" StartOffset="19"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="340" SrcFileId="3" StartOffset="19"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="101" HierarchyLvlTypeId="11" Intrnl_Id="166" Name="getData">
+                        <Header>
+                            <Loc EndOffset="118" SrcFileId="3" StartOffset="95"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="140" SrcFileId="3" StartOffset="95"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="167">
+                            <LocList>
+                                <Loc EndOffset="136" SrcFileId="3" StartOffset="124"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="Entity.Acquisto.java" Intrnl_Id="168">
+                                <LocList>
+                                    <Loc EndOffset="136" SrcFileId="3" StartOffset="124"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="102" HierarchyLvlTypeId="11" Intrnl_Id="169" Name="getImporto">
+                        <Header>
+                            <Loc EndOffset="168" SrcFileId="3" StartOffset="145"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="198" SrcFileId="3" StartOffset="145"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="170">
+                            <LocList>
+                                <Loc EndOffset="194" SrcFileId="3" StartOffset="174"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S2" CovItemPrefix="Entity.Acquisto.java" Intrnl_Id="171">
+                                <LocList>
+                                    <Loc EndOffset="194" SrcFileId="3" StartOffset="174"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="103" HierarchyLvlTypeId="11" Intrnl_Id="172" Name="setData">
+                        <Header>
+                            <Loc EndOffset="235" SrcFileId="3" StartOffset="203"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="262" SrcFileId="3" StartOffset="203"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="173">
+                            <LocList>
+                                <Loc EndOffset="258" SrcFileId="3" StartOffset="241"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S3" CovItemPrefix="Entity.Acquisto.java" Intrnl_Id="174">
+                                <LocList>
+                                    <Loc EndOffset="258" SrcFileId="3" StartOffset="241"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="104" HierarchyLvlTypeId="11" Intrnl_Id="175" Name="setImporto">
+                        <Header>
+                            <Loc EndOffset="302" SrcFileId="3" StartOffset="267"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="335" SrcFileId="3" StartOffset="267"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="176">
+                            <LocList>
+                                <Loc EndOffset="331" SrcFileId="3" StartOffset="308"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S4" CovItemPrefix="Entity.Acquisto.java" Intrnl_Id="177">
+                                <LocList>
+                                    <Loc EndOffset="331" SrcFileId="3" StartOffset="308"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+                <HierarchyLvl HierarchyLvlId="111" HierarchyLvlTypeId="12" Intrnl_Id="178" Name="ApplicazioneCashBack">
+                    <Header>
+                        <Loc EndOffset="75" SrcFileId="4" StartOffset="42"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="1943" SrcFileId="4" StartOffset="42"/>
+                    </LocList>
+                    <StmntSeq Intrnl_Id="179">
+                        <LocList>
+                            <Loc EndOffset="180" SrcFileId="4" StartOffset="131"/>
+                        </LocList>
+                        <BasicStmnt CovItemId="S1" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="180">
+                            <LocList>
+                                <Loc EndOffset="180" SrcFileId="4" StartOffset="131"/>
+                            </LocList>
+                        </BasicStmnt>
+                    </StmntSeq>
+                    <HierarchyLvl HierarchyLvlId="106" HierarchyLvlTypeId="11" Intrnl_Id="181" Name="init">
+                        <Header>
+                            <Loc EndOffset="208" SrcFileId="4" StartOffset="183"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="271" SrcFileId="4" StartOffset="183"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="182">
+                            <LocList>
+                                <Loc EndOffset="267" SrcFileId="4" StartOffset="214"/>
+                            </LocList>
+                            <CondStmnt CovItemId="S2" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="183">
+                                <Branch CovItemId="B1" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="184">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="267" SrcFileId="4" StartOffset="232"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="185">
+                                        <LocList>
+                                            <Loc EndOffset="267" SrcFileId="4" StartOffset="232"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S3" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="186">
+                                            <LocList>
+                                                <Loc EndOffset="267" SrcFileId="4" StartOffset="232"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B2" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="true" Intrnl_Id="187">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="188">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="216" SrcFileId="4" StartOffset="214"/>
+                                <LocList>
+                                    <Loc EndOffset="267" SrcFileId="4" StartOffset="214"/>
+                                </LocList>
+                                <RootTerm CovItemId="C1" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="189">
+                                    <BasicBoolTerm Intrnl_Id="190">
+                                        <LocList>
+                                            <Loc EndOffset="230" SrcFileId="4" StartOffset="217"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="107" HierarchyLvlTypeId="11" Intrnl_Id="191" Name="VerificaProgramma">
+                        <Header>
+                            <Loc EndOffset="337" SrcFileId="4" StartOffset="276"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="626" SrcFileId="4" StartOffset="276"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="192">
+                            <LocList>
+                                <Loc EndOffset="352" SrcFileId="4" StartOffset="344"/>
+                                <Loc EndOffset="379" SrcFileId="4" StartOffset="357"/>
+                                <Loc EndOffset="535" SrcFileId="4" StartOffset="384"/>
+                                <Loc EndOffset="621" SrcFileId="4" StartOffset="540"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S4" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="193">
+                                <LocList>
+                                    <Loc EndOffset="352" SrcFileId="4" StartOffset="344"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S5" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="194">
+                                <LocList>
+                                    <Loc EndOffset="379" SrcFileId="4" StartOffset="357"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <LoopStmnt CovItemId="S6" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="195" MltplExecId="L1-2" MltplExecPrefix="Entity.ApplicazioneCashBack.java" NvrExecId="L1-0" NvrExecPrefix="Entity.ApplicazioneCashBack.java" OnceExecutedId="L1-1" OnceExecutedPrefix="Entity.ApplicazioneCashBack.java" OptBodyExec="true">
+                                <StmntSeq Intrnl_Id="196">
+                                    <LocList>
+                                        <Loc EndOffset="529" SrcFileId="4" StartOffset="432"/>
+                                    </LocList>
+                                    <CondStmnt CovItemId="S7" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="197">
+                                        <Branch CovItemId="B3" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="198">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="504" SrcFileId="4" StartOffset="476"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="199">
+                                                <LocList>
+                                                    <Loc EndOffset="497" SrcFileId="4" StartOffset="484"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S8" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="200">
+                                                    <LocList>
+                                                        <Loc EndOffset="497" SrcFileId="4" StartOffset="484"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B4" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="201">
+                                            <Cond>
+                                                <Loc EndOffset="509" SrcFileId="4" StartOffset="505"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="529" SrcFileId="4" StartOffset="510"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="202">
+                                                <LocList>
+                                                    <Loc EndOffset="522" SrcFileId="4" StartOffset="518"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S9" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="203">
+                                                    <LocList>
+                                                        <Loc EndOffset="522" SrcFileId="4" StartOffset="518"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="434" SrcFileId="4" StartOffset="432"/>
+                                        <LocList>
+                                            <Loc EndOffset="529" SrcFileId="4" StartOffset="432"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C3" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="204">
+                                            <BasicBoolTerm Intrnl_Id="205">
+                                                <LocList>
+                                                    <Loc EndOffset="474" SrcFileId="4" StartOffset="436"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                </StmntSeq>
+                                <Keyword EndOffset="389" SrcFileId="4" StartOffset="384"/>
+                                <LocList>
+                                    <Loc EndOffset="535" SrcFileId="4" StartOffset="384"/>
+                                </LocList>
+                                <RootTerm CovItemId="C2" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="206">
+                                    <OpTerm BooleanOpId="6" Intrnl_Id="207">
+                                        <BasicBoolTerm Intrnl_Id="208">
+                                            <LocList>
+                                                <Loc EndOffset="409" SrcFileId="4" StartOffset="391"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <OpTerm BooleanOpId="8" Intrnl_Id="209">
+                                            <BasicBoolTerm Intrnl_Id="210">
+                                                <LocList>
+                                                    <Loc EndOffset="423" SrcFileId="4" StartOffset="416"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                            <LocList>
+                                                <Loc EndOffset="416" SrcFileId="4" StartOffset="415"/>
+                                            </LocList>
+                                        </OpTerm>
+                                        <LocList>
+                                            <Loc EndOffset="413" SrcFileId="4" StartOffset="411"/>
+                                        </LocList>
+                                    </OpTerm>
+                                </RootTerm>
+                            </LoopStmnt>
+                            <CondStmnt CovItemId="S10" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="211">
+                                <Branch CovItemId="B5" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="212">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="590" SrcFileId="4" StartOffset="553"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="213">
+                                        <LocList>
+                                            <Loc EndOffset="584" SrcFileId="4" StartOffset="560"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S11" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="214">
+                                            <LocList>
+                                                <Loc EndOffset="584" SrcFileId="4" StartOffset="560"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B6" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="215">
+                                    <Cond>
+                                        <Loc EndOffset="595" SrcFileId="4" StartOffset="591"/>
+                                    </Cond>
+                                    <LocList>
+                                        <Loc EndOffset="621" SrcFileId="4" StartOffset="596"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="216">
+                                        <LocList>
+                                            <Loc EndOffset="615" SrcFileId="4" StartOffset="603"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S12" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="217">
+                                            <LocList>
+                                                <Loc EndOffset="615" SrcFileId="4" StartOffset="603"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="542" SrcFileId="4" StartOffset="540"/>
+                                <LocList>
+                                    <Loc EndOffset="621" SrcFileId="4" StartOffset="540"/>
+                                </LocList>
+                                <RootTerm CovItemId="C4" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="218">
+                                    <BasicBoolTerm Intrnl_Id="219">
+                                        <LocList>
+                                            <Loc EndOffset="551" SrcFileId="4" StartOffset="544"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="108" HierarchyLvlTypeId="11" Intrnl_Id="220" Name="RichiediRimborso">
+                        <Header>
+                            <Loc EndOffset="702" SrcFileId="4" StartOffset="631"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="880" SrcFileId="4" StartOffset="631"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="221">
+                            <LocList>
+                                <Loc EndOffset="757" SrcFileId="4" StartOffset="708"/>
+                                <Loc EndOffset="817" SrcFileId="4" StartOffset="761"/>
+                                <Loc EndOffset="860" SrcFileId="4" StartOffset="821"/>
+                                <Loc EndOffset="876" SrcFileId="4" StartOffset="864"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S13" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="222">
+                                <LocList>
+                                    <Loc EndOffset="757" SrcFileId="4" StartOffset="708"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S14" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="223">
+                                <LocList>
+                                    <Loc EndOffset="817" SrcFileId="4" StartOffset="761"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S15" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="224">
+                                <LocList>
+                                    <Loc EndOffset="860" SrcFileId="4" StartOffset="821"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S16" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="225">
+                                <LocList>
+                                    <Loc EndOffset="876" SrcFileId="4" StartOffset="864"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="109" HierarchyLvlTypeId="11" Intrnl_Id="226" Name="VerificaRimborso">
+                        <Header>
+                            <Loc EndOffset="960" SrcFileId="4" StartOffset="888"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="1539" SrcFileId="4" StartOffset="888"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="227">
+                            <LocList>
+                                <Loc EndOffset="1015" SrcFileId="4" StartOffset="966"/>
+                                <Loc EndOffset="1535" SrcFileId="4" StartOffset="1019"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S17" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="228">
+                                <LocList>
+                                    <Loc EndOffset="1015" SrcFileId="4" StartOffset="966"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <CondStmnt CovItemId="S18" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="229">
+                                <Branch CovItemId="B7" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="230">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="1079" SrcFileId="4" StartOffset="1034"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="231">
+                                        <LocList>
+                                            <Loc EndOffset="1079" SrcFileId="4" StartOffset="1034"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S19" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="232">
+                                            <LocList>
+                                                <Loc EndOffset="1079" SrcFileId="4" StartOffset="1034"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B8" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="233">
+                                    <Cond>
+                                        <Loc EndOffset="1087" SrcFileId="4" StartOffset="1083"/>
+                                    </Cond>
+                                    <LocList>
+                                        <Loc EndOffset="1535" SrcFileId="4" StartOffset="1088"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="234">
+                                        <LocList>
+                                            <Loc EndOffset="1150" SrcFileId="4" StartOffset="1094"/>
+                                            <Loc EndOffset="1530" SrcFileId="4" StartOffset="1155"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S20" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="235">
+                                            <LocList>
+                                                <Loc EndOffset="1150" SrcFileId="4" StartOffset="1094"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <CondStmnt CovItemId="S21" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="236">
+                                            <Branch CovItemId="B9" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="237">
+                                                <Cond/>
+                                                <LocList>
+                                                    <Loc EndOffset="1206" SrcFileId="4" StartOffset="1169"/>
+                                                </LocList>
+                                                <StmntSeq Intrnl_Id="238">
+                                                    <LocList>
+                                                        <Loc EndOffset="1206" SrcFileId="4" StartOffset="1169"/>
+                                                    </LocList>
+                                                    <BasicStmnt CovItemId="S22" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="239">
+                                                        <LocList>
+                                                            <Loc EndOffset="1206" SrcFileId="4" StartOffset="1169"/>
+                                                        </LocList>
+                                                    </BasicStmnt>
+                                                </StmntSeq>
+                                            </Branch>
+                                            <Branch CovItemId="B10" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="240">
+                                                <Cond>
+                                                    <Loc EndOffset="1215" SrcFileId="4" StartOffset="1211"/>
+                                                </Cond>
+                                                <LocList>
+                                                    <Loc EndOffset="1530" SrcFileId="4" StartOffset="1216"/>
+                                                </LocList>
+                                                <StmntSeq Intrnl_Id="241">
+                                                    <LocList>
+                                                        <Loc EndOffset="1524" SrcFileId="4" StartOffset="1223"/>
+                                                    </LocList>
+                                                    <CondStmnt CovItemId="S23" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="242">
+                                                        <Branch CovItemId="B11" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="243">
+                                                            <Cond/>
+                                                            <LocList>
+                                                                <Loc EndOffset="1296" SrcFileId="4" StartOffset="1254"/>
+                                                            </LocList>
+                                                            <StmntSeq Intrnl_Id="244">
+                                                                <LocList>
+                                                                    <Loc EndOffset="1296" SrcFileId="4" StartOffset="1254"/>
+                                                                </LocList>
+                                                                <BasicStmnt CovItemId="S24" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="245">
+                                                                    <LocList>
+                                                                        <Loc EndOffset="1296" SrcFileId="4" StartOffset="1254"/>
+                                                                    </LocList>
+                                                                </BasicStmnt>
+                                                            </StmntSeq>
+                                                        </Branch>
+                                                        <Branch CovItemId="B12" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="246">
+                                                            <Cond>
+                                                                <Loc EndOffset="1306" SrcFileId="4" StartOffset="1302"/>
+                                                            </Cond>
+                                                            <LocList>
+                                                                <Loc EndOffset="1524" SrcFileId="4" StartOffset="1307"/>
+                                                            </LocList>
+                                                            <StmntSeq Intrnl_Id="247">
+                                                                <LocList>
+                                                                    <Loc EndOffset="1360" SrcFileId="4" StartOffset="1315"/>
+                                                                    <Loc EndOffset="1517" SrcFileId="4" StartOffset="1367"/>
+                                                                </LocList>
+                                                                <BasicStmnt CovItemId="S25" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="248">
+                                                                    <LocList>
+                                                                        <Loc EndOffset="1360" SrcFileId="4" StartOffset="1315"/>
+                                                                    </LocList>
+                                                                </BasicStmnt>
+                                                                <CondStmnt CovItemId="S26" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="249">
+                                                                    <Branch CovItemId="B13" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="250">
+                                                                        <Cond/>
+                                                                        <LocList>
+                                                                            <Loc EndOffset="1431" SrcFileId="4" StartOffset="1388"/>
+                                                                        </LocList>
+                                                                        <StmntSeq Intrnl_Id="251">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="1431" SrcFileId="4" StartOffset="1388"/>
+                                                                            </LocList>
+                                                                            <BasicStmnt CovItemId="S27" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="252">
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="1431" SrcFileId="4" StartOffset="1388"/>
+                                                                                </LocList>
+                                                                            </BasicStmnt>
+                                                                        </StmntSeq>
+                                                                    </Branch>
+                                                                    <Branch CovItemId="B14" CovItemPrefix="Entity.ApplicazioneCashBack.java" Implct="false" Intrnl_Id="253">
+                                                                        <Cond>
+                                                                            <Loc EndOffset="1442" SrcFileId="4" StartOffset="1438"/>
+                                                                        </Cond>
+                                                                        <LocList>
+                                                                            <Loc EndOffset="1517" SrcFileId="4" StartOffset="1443"/>
+                                                                        </LocList>
+                                                                        <StmntSeq Intrnl_Id="254">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="1509" SrcFileId="4" StartOffset="1452"/>
+                                                                            </LocList>
+                                                                            <BasicStmnt CovItemId="S28" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="255">
+                                                                                <LocList>
+                                                                                    <Loc EndOffset="1509" SrcFileId="4" StartOffset="1452"/>
+                                                                                </LocList>
+                                                                            </BasicStmnt>
+                                                                        </StmntSeq>
+                                                                    </Branch>
+                                                                    <Keyword EndOffset="1369" SrcFileId="4" StartOffset="1367"/>
+                                                                    <LocList>
+                                                                        <Loc EndOffset="1517" SrcFileId="4" StartOffset="1367"/>
+                                                                    </LocList>
+                                                                    <RootTerm CovItemId="C8" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="256">
+                                                                        <BasicBoolTerm Intrnl_Id="257">
+                                                                            <LocList>
+                                                                                <Loc EndOffset="1386" SrcFileId="4" StartOffset="1370"/>
+                                                                            </LocList>
+                                                                        </BasicBoolTerm>
+                                                                    </RootTerm>
+                                                                </CondStmnt>
+                                                            </StmntSeq>
+                                                        </Branch>
+                                                        <Keyword EndOffset="1225" SrcFileId="4" StartOffset="1223"/>
+                                                        <LocList>
+                                                            <Loc EndOffset="1524" SrcFileId="4" StartOffset="1223"/>
+                                                        </LocList>
+                                                        <RootTerm CovItemId="C7" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="258">
+                                                            <BasicBoolTerm Intrnl_Id="259">
+                                                                <LocList>
+                                                                    <Loc EndOffset="1252" SrcFileId="4" StartOffset="1226"/>
+                                                                </LocList>
+                                                            </BasicBoolTerm>
+                                                        </RootTerm>
+                                                    </CondStmnt>
+                                                </StmntSeq>
+                                            </Branch>
+                                            <Keyword EndOffset="1157" SrcFileId="4" StartOffset="1155"/>
+                                            <LocList>
+                                                <Loc EndOffset="1530" SrcFileId="4" StartOffset="1155"/>
+                                            </LocList>
+                                            <RootTerm CovItemId="C6" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="260">
+                                                <BasicBoolTerm Intrnl_Id="261">
+                                                    <LocList>
+                                                        <Loc EndOffset="1167" SrcFileId="4" StartOffset="1158"/>
+                                                    </LocList>
+                                                </BasicBoolTerm>
+                                            </RootTerm>
+                                        </CondStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="1021" SrcFileId="4" StartOffset="1019"/>
+                                <LocList>
+                                    <Loc EndOffset="1535" SrcFileId="4" StartOffset="1019"/>
+                                </LocList>
+                                <RootTerm CovItemId="C5" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="262">
+                                    <BasicBoolTerm Intrnl_Id="263">
+                                        <LocList>
+                                            <Loc EndOffset="1032" SrcFileId="4" StartOffset="1022"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="110" HierarchyLvlTypeId="11" Intrnl_Id="264" Name="ApplicazioneCashBack">
+                        <Header>
+                            <Loc EndOffset="1572" SrcFileId="4" StartOffset="1542"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="1940" SrcFileId="4" StartOffset="1542"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="265">
+                            <LocList>
+                                <Loc EndOffset="1624" SrcFileId="4" StartOffset="1577"/>
+                                <Loc EndOffset="1683" SrcFileId="4" StartOffset="1628"/>
+                                <Loc EndOffset="1742" SrcFileId="4" StartOffset="1687"/>
+                                <Loc EndOffset="1801" SrcFileId="4" StartOffset="1746"/>
+                                <Loc EndOffset="1846" SrcFileId="4" StartOffset="1805"/>
+                                <Loc EndOffset="1891" SrcFileId="4" StartOffset="1850"/>
+                                <Loc EndOffset="1936" SrcFileId="4" StartOffset="1895"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S29" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="266">
+                                <LocList>
+                                    <Loc EndOffset="1624" SrcFileId="4" StartOffset="1577"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S30" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="267">
+                                <LocList>
+                                    <Loc EndOffset="1683" SrcFileId="4" StartOffset="1628"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S31" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="268">
+                                <LocList>
+                                    <Loc EndOffset="1742" SrcFileId="4" StartOffset="1687"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S32" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="269">
+                                <LocList>
+                                    <Loc EndOffset="1801" SrcFileId="4" StartOffset="1746"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S33" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="270">
+                                <LocList>
+                                    <Loc EndOffset="1846" SrcFileId="4" StartOffset="1805"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S34" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="271">
+                                <LocList>
+                                    <Loc EndOffset="1891" SrcFileId="4" StartOffset="1850"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S35" CovItemPrefix="Entity.ApplicazioneCashBack.java" Intrnl_Id="272">
+                                <LocList>
+                                    <Loc EndOffset="1936" SrcFileId="4" StartOffset="1895"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+                <HierarchyLvl HierarchyLvlId="118" HierarchyLvlTypeId="12" Intrnl_Id="273" Name="ProgrammaCashBack">
+                    <Header>
+                        <Loc EndOffset="210" SrcFileId="5" StartOffset="180"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="2443" SrcFileId="5" StartOffset="180"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="112" HierarchyLvlTypeId="11" Intrnl_Id="274" Name="VerificaRegistrazione">
+                        <Header>
+                            <Loc EndOffset="461" SrcFileId="5" StartOffset="396"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="702" SrcFileId="5" StartOffset="396"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="275">
+                            <LocList>
+                                <Loc EndOffset="475" SrcFileId="5" StartOffset="467"/>
+                                <Loc EndOffset="682" SrcFileId="5" StartOffset="479"/>
+                                <Loc EndOffset="698" SrcFileId="5" StartOffset="686"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="276">
+                                <LocList>
+                                    <Loc EndOffset="475" SrcFileId="5" StartOffset="467"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <LoopStmnt CovItemId="S2" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="277" MltplExecId="L1-2" MltplExecPrefix="Entity.ProgrammaCashBack.java" NvrExecId="L1-0" NvrExecPrefix="Entity.ProgrammaCashBack.java" OnceExecutedId="L1-1" OnceExecutedPrefix="Entity.ProgrammaCashBack.java" OptBodyExec="true">
+                                <StmntSeq Intrnl_Id="278">
+                                    <LocList>
+                                        <Loc EndOffset="677" SrcFileId="5" StartOffset="514"/>
+                                    </LocList>
+                                    <CondStmnt CovItemId="S3" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="279">
+                                        <Branch CovItemId="B1" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="280">
+                                            <Cond/>
+                                            <LocList>
+                                                <Loc EndOffset="654" SrcFileId="5" StartOffset="613"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="281">
+                                                <LocList>
+                                                    <Loc EndOffset="648" SrcFileId="5" StartOffset="620"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S4" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="282">
+                                                    <LocList>
+                                                        <Loc EndOffset="648" SrcFileId="5" StartOffset="620"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Branch CovItemId="B2" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="283">
+                                            <Cond>
+                                                <Loc EndOffset="659" SrcFileId="5" StartOffset="655"/>
+                                            </Cond>
+                                            <LocList>
+                                                <Loc EndOffset="677" SrcFileId="5" StartOffset="660"/>
+                                            </LocList>
+                                            <StmntSeq Intrnl_Id="284">
+                                                <LocList>
+                                                    <Loc EndOffset="671" SrcFileId="5" StartOffset="667"/>
+                                                </LocList>
+                                                <BasicStmnt CovItemId="S5" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="285">
+                                                    <LocList>
+                                                        <Loc EndOffset="671" SrcFileId="5" StartOffset="667"/>
+                                                    </LocList>
+                                                </BasicStmnt>
+                                            </StmntSeq>
+                                        </Branch>
+                                        <Keyword EndOffset="516" SrcFileId="5" StartOffset="514"/>
+                                        <LocList>
+                                            <Loc EndOffset="677" SrcFileId="5" StartOffset="514"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C2" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="286">
+                                            <OpTerm BooleanOpId="6" Intrnl_Id="287">
+                                                <BasicBoolTerm Intrnl_Id="288">
+                                                    <LocList>
+                                                        <Loc EndOffset="558" SrcFileId="5" StartOffset="519"/>
+                                                    </LocList>
+                                                </BasicBoolTerm>
+                                                <BasicBoolTerm Intrnl_Id="289">
+                                                    <LocList>
+                                                        <Loc EndOffset="610" SrcFileId="5" StartOffset="564"/>
+                                                    </LocList>
+                                                </BasicBoolTerm>
+                                                <LocList>
+                                                    <Loc EndOffset="562" SrcFileId="5" StartOffset="560"/>
+                                                </LocList>
+                                            </OpTerm>
+                                        </RootTerm>
+                                    </CondStmnt>
+                                </StmntSeq>
+                                <Keyword EndOffset="484" SrcFileId="5" StartOffset="479"/>
+                                <LocList>
+                                    <Loc EndOffset="682" SrcFileId="5" StartOffset="479"/>
+                                </LocList>
+                                <RootTerm CovItemId="C1" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="290">
+                                    <BasicBoolTerm Intrnl_Id="291">
+                                        <LocList>
+                                            <Loc EndOffset="507" SrcFileId="5" StartOffset="485"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </LoopStmnt>
+                            <BasicStmnt CovItemId="S6" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="292">
+                                <LocList>
+                                    <Loc EndOffset="698" SrcFileId="5" StartOffset="686"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="113" HierarchyLvlTypeId="11" Intrnl_Id="293" Name="CalcolaRimborso">
+                        <Header>
+                            <Loc EndOffset="754" SrcFileId="5" StartOffset="707"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="928" SrcFileId="5" StartOffset="707"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="294">
+                            <LocList>
+                                <Loc EndOffset="799" SrcFileId="5" StartOffset="760"/>
+                                <Loc EndOffset="851" SrcFileId="5" StartOffset="803"/>
+                                <Loc EndOffset="882" SrcFileId="5" StartOffset="855"/>
+                                <Loc EndOffset="908" SrcFileId="5" StartOffset="886"/>
+                                <Loc EndOffset="924" SrcFileId="5" StartOffset="912"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S7" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="295">
+                                <LocList>
+                                    <Loc EndOffset="799" SrcFileId="5" StartOffset="760"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S8" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="296">
+                                <LocList>
+                                    <Loc EndOffset="851" SrcFileId="5" StartOffset="803"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <CondStmnt CovItemId="S9" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="297">
+                                <Branch CovItemId="B3" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="298">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="882" SrcFileId="5" StartOffset="871"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="299">
+                                        <LocList>
+                                            <Loc EndOffset="882" SrcFileId="5" StartOffset="871"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S10" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="300">
+                                            <LocList>
+                                                <Loc EndOffset="882" SrcFileId="5" StartOffset="871"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B4" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="true" Intrnl_Id="301">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="302">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="857" SrcFileId="5" StartOffset="855"/>
+                                <LocList>
+                                    <Loc EndOffset="882" SrcFileId="5" StartOffset="855"/>
+                                </LocList>
+                                <RootTerm CovItemId="C3" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="303">
+                                    <BasicBoolTerm Intrnl_Id="304">
+                                        <LocList>
+                                            <Loc EndOffset="869" SrcFileId="5" StartOffset="858"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                            <BasicStmnt CovItemId="S11" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="305">
+                                <LocList>
+                                    <Loc EndOffset="908" SrcFileId="5" StartOffset="886"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S12" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="306">
+                                <LocList>
+                                    <Loc EndOffset="924" SrcFileId="5" StartOffset="912"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="114" HierarchyLvlTypeId="11" Intrnl_Id="307" Name="VerificaData">
+                        <Header>
+                            <Loc EndOffset="962" SrcFileId="5" StartOffset="933"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="1317" SrcFileId="5" StartOffset="933"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="308">
+                            <LocList>
+                                <Loc EndOffset="1025" SrcFileId="5" StartOffset="974"/>
+                                <Loc EndOffset="1069" SrcFileId="5" StartOffset="1030"/>
+                                <Loc EndOffset="1122" SrcFileId="5" StartOffset="1085"/>
+                                <Loc EndOffset="1187" SrcFileId="5" StartOffset="1074"/>
+                                <Loc EndOffset="1237" SrcFileId="5" StartOffset="1197"/>
+                                <Loc EndOffset="1312" SrcFileId="5" StartOffset="1242"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S13" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="309">
+                                <LocList>
+                                    <Loc EndOffset="1025" SrcFileId="5" StartOffset="974"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S14" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="310">
+                                <LocList>
+                                    <Loc EndOffset="1069" SrcFileId="5" StartOffset="1030"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S16" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="311">
+                                <LocList>
+                                    <Loc EndOffset="1122" SrcFileId="5" StartOffset="1085"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <CondStmnt CovItemId="S15" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="312">
+                                <Branch CovItemId="B5" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="true" Intrnl_Id="313">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="314">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B6" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="315">
+                                    <Cond>
+                                        <Loc EndOffset="1153" SrcFileId="5" StartOffset="1129"/>
+                                    </Cond>
+                                    <LocList>
+                                        <Loc EndOffset="1187" SrcFileId="5" StartOffset="1154"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="316">
+                                        <LocList>
+                                            <Loc EndOffset="1181" SrcFileId="5" StartOffset="1161"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S17" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="317">
+                                            <LocList>
+                                                <Loc EndOffset="1181" SrcFileId="5" StartOffset="1161"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="1077" SrcFileId="5" StartOffset="1074"/>
+                                <LocList>
+                                    <Loc EndOffset="1187" SrcFileId="5" StartOffset="1074"/>
+                                </LocList>
+                            </CondStmnt>
+                            <BasicStmnt CovItemId="S18" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="318">
+                                <LocList>
+                                    <Loc EndOffset="1237" SrcFileId="5" StartOffset="1197"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <CondStmnt CovItemId="S19" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="319">
+                                <Branch CovItemId="B7" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="320">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="1281" SrcFileId="5" StartOffset="1269"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="321">
+                                        <LocList>
+                                            <Loc EndOffset="1281" SrcFileId="5" StartOffset="1269"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S20" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="322">
+                                            <LocList>
+                                                <Loc EndOffset="1281" SrcFileId="5" StartOffset="1269"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B8" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="323">
+                                    <Cond>
+                                        <Loc EndOffset="1298" SrcFileId="5" StartOffset="1294"/>
+                                    </Cond>
+                                    <LocList>
+                                        <Loc EndOffset="1312" SrcFileId="5" StartOffset="1299"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="324">
+                                        <LocList>
+                                            <Loc EndOffset="1312" SrcFileId="5" StartOffset="1299"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S21" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="325">
+                                            <LocList>
+                                                <Loc EndOffset="1312" SrcFileId="5" StartOffset="1299"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="1244" SrcFileId="5" StartOffset="1242"/>
+                                <LocList>
+                                    <Loc EndOffset="1312" SrcFileId="5" StartOffset="1242"/>
+                                </LocList>
+                                <RootTerm CovItemId="C4" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="326">
+                                    <BasicBoolTerm Intrnl_Id="327">
+                                        <LocList>
+                                            <Loc EndOffset="1267" SrcFileId="5" StartOffset="1245"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="115" HierarchyLvlTypeId="11" Intrnl_Id="328" Name="VerificaAcquisti">
+                        <Header>
+                            <Loc EndOffset="1370" SrcFileId="5" StartOffset="1320"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="1478" SrcFileId="5" StartOffset="1320"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="329">
+                            <LocList>
+                                <Loc EndOffset="1413" SrcFileId="5" StartOffset="1376"/>
+                                <Loc EndOffset="1474" SrcFileId="5" StartOffset="1417"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S22" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="330">
+                                <LocList>
+                                    <Loc EndOffset="1413" SrcFileId="5" StartOffset="1376"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <CondStmnt CovItemId="S23" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="331">
+                                <Branch CovItemId="B9" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="332">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="1452" SrcFileId="5" StartOffset="1440"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="333">
+                                        <LocList>
+                                            <Loc EndOffset="1452" SrcFileId="5" StartOffset="1440"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S24" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="334">
+                                            <LocList>
+                                                <Loc EndOffset="1452" SrcFileId="5" StartOffset="1440"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B10" CovItemPrefix="Entity.ProgrammaCashBack.java" Implct="false" Intrnl_Id="335">
+                                    <Cond>
+                                        <Loc EndOffset="1460" SrcFileId="5" StartOffset="1456"/>
+                                    </Cond>
+                                    <LocList>
+                                        <Loc EndOffset="1474" SrcFileId="5" StartOffset="1461"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="336">
+                                        <LocList>
+                                            <Loc EndOffset="1474" SrcFileId="5" StartOffset="1461"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S25" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="337">
+                                            <LocList>
+                                                <Loc EndOffset="1474" SrcFileId="5" StartOffset="1461"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="1419" SrcFileId="5" StartOffset="1417"/>
+                                <LocList>
+                                    <Loc EndOffset="1474" SrcFileId="5" StartOffset="1417"/>
+                                </LocList>
+                                <RootTerm CovItemId="C5" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="338">
+                                    <BasicBoolTerm Intrnl_Id="339">
+                                        <LocList>
+                                            <Loc EndOffset="1438" SrcFileId="5" StartOffset="1420"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="116" HierarchyLvlTypeId="11" Intrnl_Id="340" Name="ProgrammaCashBack">
+                        <Header>
+                            <Loc EndOffset="1510" SrcFileId="5" StartOffset="1481"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="2387" SrcFileId="5" StartOffset="1481"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="341">
+                            <LocList>
+                                <Loc EndOffset="1578" SrcFileId="5" StartOffset="1515"/>
+                                <Loc EndOffset="1611" SrcFileId="5" StartOffset="1582"/>
+                                <Loc EndOffset="1648" SrcFileId="5" StartOffset="1615"/>
+                                <Loc EndOffset="1693" SrcFileId="5" StartOffset="1652"/>
+                                <Loc EndOffset="1736" SrcFileId="5" StartOffset="1697"/>
+                                <Loc EndOffset="1767" SrcFileId="5" StartOffset="1740"/>
+                                <Loc EndOffset="1818" SrcFileId="5" StartOffset="1771"/>
+                                <Loc EndOffset="2379" SrcFileId="5" StartOffset="1826"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S26" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="342">
+                                <LocList>
+                                    <Loc EndOffset="1578" SrcFileId="5" StartOffset="1515"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S27" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="343">
+                                <LocList>
+                                    <Loc EndOffset="1611" SrcFileId="5" StartOffset="1582"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S28" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="344">
+                                <LocList>
+                                    <Loc EndOffset="1648" SrcFileId="5" StartOffset="1615"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S29" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="345">
+                                <LocList>
+                                    <Loc EndOffset="1693" SrcFileId="5" StartOffset="1652"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S30" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="346">
+                                <LocList>
+                                    <Loc EndOffset="1736" SrcFileId="5" StartOffset="1697"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S31" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="347">
+                                <LocList>
+                                    <Loc EndOffset="1767" SrcFileId="5" StartOffset="1740"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <BasicStmnt CovItemId="S32" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="348">
+                                <LocList>
+                                    <Loc EndOffset="1818" SrcFileId="5" StartOffset="1771"/>
+                                </LocList>
+                            </BasicStmnt>
+                            <LoopStmnt CovItemId="S33" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="349" MltplExecId="L2-2" MltplExecPrefix="Entity.ProgrammaCashBack.java" NvrExecId="L2-0" NvrExecPrefix="Entity.ProgrammaCashBack.java" OnceExecutedId="L2-1" OnceExecutedPrefix="Entity.ProgrammaCashBack.java" OptBodyExec="true">
+                                <StmntSeq Intrnl_Id="350">
+                                    <LocList>
+                                        <Loc EndOffset="1920" SrcFileId="5" StartOffset="1882"/>
+                                        <Loc EndOffset="2230" SrcFileId="5" StartOffset="1925"/>
+                                        <Loc EndOffset="2283" SrcFileId="5" StartOffset="2235"/>
+                                        <Loc EndOffset="2348" SrcFileId="5" StartOffset="2288"/>
+                                        <Loc EndOffset="2374" SrcFileId="5" StartOffset="2353"/>
+                                    </LocList>
+                                    <BasicStmnt CovItemId="S34" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="351">
+                                        <LocList>
+                                            <Loc EndOffset="1920" SrcFileId="5" StartOffset="1882"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <LoopStmnt CovItemId="S35" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="352" MltplExecId="L3-2" MltplExecPrefix="Entity.ProgrammaCashBack.java" NvrExecId="L3-0" NvrExecPrefix="Entity.ProgrammaCashBack.java" OnceExecutedId="L3-1" OnceExecutedPrefix="Entity.ProgrammaCashBack.java" OptBodyExec="true">
+                                        <StmntSeq Intrnl_Id="353">
+                                            <LocList>
+                                                <Loc EndOffset="2031" SrcFileId="5" StartOffset="2003"/>
+                                                <Loc EndOffset="2110" SrcFileId="5" StartOffset="2037"/>
+                                                <Loc EndOffset="2195" SrcFileId="5" StartOffset="2116"/>
+                                                <Loc EndOffset="2224" SrcFileId="5" StartOffset="2201"/>
+                                            </LocList>
+                                            <BasicStmnt CovItemId="S36" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="354">
+                                                <LocList>
+                                                    <Loc EndOffset="2031" SrcFileId="5" StartOffset="2003"/>
+                                                </LocList>
+                                            </BasicStmnt>
+                                            <BasicStmnt CovItemId="S37" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="355">
+                                                <LocList>
+                                                    <Loc EndOffset="2110" SrcFileId="5" StartOffset="2037"/>
+                                                </LocList>
+                                            </BasicStmnt>
+                                            <BasicStmnt CovItemId="S38" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="356">
+                                                <LocList>
+                                                    <Loc EndOffset="2195" SrcFileId="5" StartOffset="2116"/>
+                                                </LocList>
+                                            </BasicStmnt>
+                                            <BasicStmnt CovItemId="S39" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="357">
+                                                <LocList>
+                                                    <Loc EndOffset="2224" SrcFileId="5" StartOffset="2201"/>
+                                                </LocList>
+                                            </BasicStmnt>
+                                        </StmntSeq>
+                                        <Keyword EndOffset="1928" SrcFileId="5" StartOffset="1925"/>
+                                        <LocList>
+                                            <Loc EndOffset="2230" SrcFileId="5" StartOffset="1925"/>
+                                        </LocList>
+                                        <RootTerm CovItemId="C7" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="358">
+                                            <BasicBoolTerm Intrnl_Id="359">
+                                                <LocList>
+                                                    <Loc EndOffset="1990" SrcFileId="5" StartOffset="1937"/>
+                                                </LocList>
+                                            </BasicBoolTerm>
+                                        </RootTerm>
+                                    </LoopStmnt>
+                                    <BasicStmnt CovItemId="S40" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="360">
+                                        <LocList>
+                                            <Loc EndOffset="2283" SrcFileId="5" StartOffset="2235"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S41" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="361">
+                                        <LocList>
+                                            <Loc EndOffset="2348" SrcFileId="5" StartOffset="2288"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                    <BasicStmnt CovItemId="S42" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="362">
+                                        <LocList>
+                                            <Loc EndOffset="2374" SrcFileId="5" StartOffset="2353"/>
+                                        </LocList>
+                                    </BasicStmnt>
+                                </StmntSeq>
+                                <Keyword EndOffset="1829" SrcFileId="5" StartOffset="1826"/>
+                                <LocList>
+                                    <Loc EndOffset="2379" SrcFileId="5" StartOffset="1826"/>
+                                </LocList>
+                                <RootTerm CovItemId="C6" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="363">
+                                    <BasicBoolTerm Intrnl_Id="364">
+                                        <LocList>
+                                            <Loc EndOffset="1870" SrcFileId="5" StartOffset="1838"/>
+                                        </LocList>
+                                    </BasicBoolTerm>
+                                </RootTerm>
+                            </LoopStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="117" HierarchyLvlTypeId="11" Intrnl_Id="365" Name="getCodice">
+                        <Header>
+                            <Loc EndOffset="2414" SrcFileId="5" StartOffset="2392"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="2438" SrcFileId="5" StartOffset="2392"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="366">
+                            <LocList>
+                                <Loc EndOffset="2434" SrcFileId="5" StartOffset="2420"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S43" CovItemPrefix="Entity.ProgrammaCashBack.java" Intrnl_Id="367">
+                                <LocList>
+                                    <Loc EndOffset="2434" SrcFileId="5" StartOffset="2420"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+            </HierarchyLvl>
+        </HierarchyLvl>
+    </MASTRoot>
+</TestSessionContainer>
