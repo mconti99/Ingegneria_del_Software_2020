@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InstrumentableItems>
+<IJavaProject Info="/N46004211-Conti-ProgettoJava">
+<IPackageFragement Info="/N46004211-Conti-ProgettoJava/src/Stub">
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Stub/StubProgrammaCashBack.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Stub/StubAcquisto.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Stub/StubRimborso.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Stub/StubRegistrazione.java"/>
+</IPackageFragement>
+<IPackageFragement Info="/N46004211-Conti-ProgettoJava/src/Control">
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Control/RichiestaRimborsoController.java"/>
+</IPackageFragement>
+<IPackageFragement Info="/N46004211-Conti-ProgettoJava/src/Boundary">
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Boundary/RichiestaRimborsoFormWindow.java"/>
+</IPackageFragement>
+<IPackageFragement Info="/N46004211-Conti-ProgettoJava/src/Entity">
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Entity/Acquisto.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Entity/ProgrammaCashBack.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Entity/Rimborso.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Entity/ApplicazioneCashBack.java"/>
+<ICompilationUnit Info="/N46004211-Conti-ProgettoJava/src/Entity/Registrazione.java"/>
+</IPackageFragement>
+</IJavaProject>
+</InstrumentableItems>

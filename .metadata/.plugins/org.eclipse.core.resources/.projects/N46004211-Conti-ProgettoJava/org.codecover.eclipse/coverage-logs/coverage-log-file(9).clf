@@ -1,0 +1,155 @@
+// Charset: UTF-8
+// ///////////////////////////////
+// 
+// Start Session
+// 
+// 21.01.2021 22:25:40.620
+// 
+// ///////////////////////////////
+// 21.01.2021 22:25:40.620
+TEST_SESSION_CONTAINER "b2d1b28b-2555-403c-9e69-ba694b30206b"
+START_TEST_CASE "UNNAMED TESTCASE" 1611264340620 "This is a test case containing all coverage results cause no startTestCase methods where captured."
+START_SECTION "Control.RichiestaRimborsoController.java"
+S1 1
+S2 1
+S3 1
+S4 1
+S5 1
+S6 1
+S7 1
+S8 1
+S9 1
+B1 1
+C1-11 1
+START_SECTION "Entity.ApplicazioneCashBack.java"
+S1 1
+S2 1
+S3 1
+S4 2
+S5 2
+S6 2
+S7 2
+S8 2
+S10 2
+S11 2
+S13 1
+S14 1
+S15 1
+S16 1
+S17 1
+S18 1
+S20 1
+S21 1
+S23 1
+S25 1
+S26 1
+S28 1
+S29 1
+S30 1
+S31 1
+S32 1
+S33 1
+S34 1
+S35 1
+B1 1
+B3 2
+B5 2
+B8 1
+B10 1
+B12 1
+B14 1
+C1-11 1
+C2-1110 2
+C2-1111 2
+C3-11 2
+C4-11 2
+C5-10 1
+C6-10 1
+C7-10 1
+C8-10 1
+L1-1 2
+START_SECTION "Entity.ProgrammaCashBack.java"
+S1 2
+S2 2
+S3 2
+S4 2
+S7 1
+S8 1
+S9 1
+S11 1
+S12 1
+S13 1
+S14 1
+S15 1
+S16 1
+S18 1
+S19 1
+S20 1
+S22 1
+S23 1
+S24 1
+S26 3
+S27 3
+S28 3
+S29 3
+S30 3
+S31 3
+S32 3
+S33 3
+S34 4
+S35 4
+S36 11
+S37 11
+S38 11
+S39 11
+S40 4
+S41 4
+S42 4
+S43 2
+B1 2
+B4 1
+B5 1
+B7 1
+B9 1
+C1-11 2
+C2-1111 2
+C3-10 1
+C4-11 1
+C5-11 1
+C6-10 3
+C6-11 4
+C7-10 4
+C7-11 11
+L1-1 2
+L2-1 2
+L2-2 1
+L3-1 1
+L3-2 3
+START_SECTION "Entity.Registrazione.java"
+S2 1
+S3 11
+S5 2
+S6 4
+S7 2
+S8 4
+S9 1
+S10 1
+S11 1
+S12 3
+S13 1
+S14 4
+S15 4
+C1-10 1
+C1-11 3
+L1-2 1
+// 21.01.2021 22:25:42.266
+// 00:01.646
+END_TEST_CASE "UNNAMED TESTCASE" 1611264342266
+// ///////////////////////////////
+// 
+// End Session
+// 
+// 21.01.2021 22:25:42.268
+// 00:01.648
+// 
+// ///////////////////////////////

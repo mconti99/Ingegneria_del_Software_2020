@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1611339183995" TestSessionContainerId="1a1909c7-0cb0-4a30-bf82-aec056423d00" version="1.0">
+    <SrcFileList>
+        <SrcFile Content="package Stub;&#13;&#10;&#13;&#10;import java.util.ArrayList;&#13;&#10;&#13;&#10;public class StubRegistrazione {&#13;&#10;&#13;&#10;&#9;private ArrayList&lt;StubAcquisto&gt; acquisti;&#13;&#10;&#9;private StubRimborso rimborso;&#13;&#10;&#9;private String id;&#13;&#10;&#9;private String password;&#13;&#10;&#9;&#13;&#10;&#9;public StubRimborso getRimborso() {&#13;&#10;&#9;&#9;return rimborso;&#13;&#10;&#9;}&#13;&#10;&#9;public void setRimborso(StubRimborso rimborso) {&#13;&#10;&#9;&#9;this.rimborso = rimborso;&#13;&#10;&#9;}&#13;&#10;&#9;public ArrayList&lt;StubAcquisto&gt; getAcquisti() {&#13;&#10;&#9;&#9;return acquisti;&#13;&#10;&#9;}&#13;&#10;&#9;public void setAcquisti(ArrayList&lt;StubAcquisto&gt; acquisti) {&#13;&#10;&#9;&#9;this.acquisti = acquisti;&#13;&#10;&#9;}&#13;&#10;&#9;public String getId() {&#13;&#10;&#9;&#9;return id;&#13;&#10;&#9;}&#13;&#10;&#9;public void setId(String id) {&#13;&#10;&#9;&#9;this.id = id;&#13;&#10;&#9;}&#13;&#10;&#9;public String getPassword() {&#13;&#10;&#9;&#9;return password;&#13;&#10;&#9;}&#13;&#10;&#9;public void setPassword(String password) {&#13;&#10;&#9;&#9;this.password = password;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public StubRegistrazione(String id, String psw) {&#13;&#10;&#9;&#9;if(id.equals(&quot;matteo.conti000&quot;) &amp;&amp; psw.equals(&quot;maradona10&quot;)) {&#13;&#10;&#9;&#9;&#9;this.setId(&quot;matteo.conti000&quot;);&#13;&#10;&#9;&#9;&#9;this.setPassword(&quot;maradona10&quot;);&#13;&#10;&#9;&#9;&#9;acquisti = new ArrayList&lt;StubAcquisto&gt;();&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ1 = new StubAcquisto(&quot;12/01/2019&quot;, 100);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ2 = new StubAcquisto(&quot;14/01/2019&quot;, 150);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ3 = new StubAcquisto(&quot;15/04/2019&quot;, 20);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ1);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ2);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ3);&#13;&#10;&#9;&#9;&#9;rimborso = new StubRimborso(0);&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;if(id.equals(&quot;franknapoli.123&quot;) &amp;&amp; psw.equals(&quot;ciaociao99&quot;)) {&#13;&#10;&#9;&#9;&#9;this.setId(&quot;franknapoli.123&quot;);&#13;&#10;&#9;&#9;&#9;this.setPassword(&quot;ciaociao99&quot;);&#13;&#10;&#9;&#9;&#9;acquisti = new ArrayList&lt;StubAcquisto&gt;();&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ1 = new StubAcquisto(&quot;12/02/2020&quot;, 700);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ2 = new StubAcquisto(&quot;14/01/2020&quot;, 210);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ3 = new StubAcquisto(&quot;01/04/2020&quot;, 110);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ4 = new StubAcquisto(&quot;13/12/2020&quot;, 10);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ1);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ2);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ3);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ4);&#13;&#10;&#9;&#9;&#9;rimborso = new StubRimborso(0);&#13;&#10;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;if(id.equals(&quot;eduard.conti123&quot;) &amp;&amp; psw.equals(&quot;lavezzi000&quot;)) {&#13;&#10;&#9;&#9;&#9;this.setId(&quot;eduard.conti123&quot;);&#13;&#10;&#9;&#9;&#9;this.setPassword(&quot;lavezzi000&quot;);&#13;&#10;&#9;&#9;&#9;acquisti = new ArrayList&lt;StubAcquisto&gt;();&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ1 = new StubAcquisto(&quot;02/01/2021&quot;, 5);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ2 = new StubAcquisto(&quot;03/01/2021&quot;, 15);&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ3 = new StubAcquisto(&quot;10/01/2021&quot;, 500);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ1);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ2);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ3);&#13;&#10;&#9;&#9;&#9;rimborso = new StubRimborso(0);&#13;&#10;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;if(id.equals(&quot;antonio.guarino&quot;) &amp;&amp; psw.equals(&quot;osimhen100&quot;)) {&#13;&#10;&#9;&#9;&#9;this.setId(&quot;antonio.guarino&quot;);&#13;&#10;&#9;&#9;&#9;this.setPassword(&quot;osimhen100&quot;);&#13;&#10;&#9;&#9;&#9;acquisti = new ArrayList&lt;StubAcquisto&gt;();&#13;&#10;&#9;&#9;&#9;StubAcquisto ACQ1 = new StubAcquisto(&quot;16/11/2020&quot;, 15);&#13;&#10;&#9;&#9;&#9;this.acquisti.add(ACQ1);&#13;&#10;&#9;&#9;&#9;rimborso = new StubRimborso(0);&#13;&#10;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#13;&#10;}" Filename="StubRegistrazione.java" Intrnl_Id="1"/>
+        <SrcFile Content="package Stub;&#13;&#10;&#13;&#10;public class StubRimborso {&#13;&#10;&#13;&#10;&#9;private float importo;&#13;&#10;&#13;&#10;&#9;/**&#13;&#10;&#9; * &#13;&#10;&#9; * @param rimborso&#13;&#10;&#9; */&#13;&#10;&#13;&#10;&#9;public float getImporto() {&#13;&#10;&#9;&#9;return importo;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public void setRimborso(float importo) {&#13;&#10;&#9;&#9;this.importo = importo;&#13;&#10;&#9;}&#13;&#10;    StubRimborso(float imp){&#13;&#10;    &#9;this.setRimborso(imp);&#13;&#10;    }&#13;&#10;}" Filename="StubRimborso.java" Intrnl_Id="2"/>
+    </SrcFileList>
+    <CritList>
+        <CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.QMOCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.SynchronizedStatementCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+    </CritList>
+    <BoolOpList>
+        <BoolOp Arity="2" Intrnl_Id="3" Name="conditional and (&amp;&amp;)">
+            <BoolAssgnmntBoolMapList>
+                <MapEntry BoolAssgnmnt="02" Value="false"/>
+                <MapEntry BoolAssgnmnt="10" Value="false"/>
+                <MapEntry BoolAssgnmnt="11" Value="true"/>
+            </BoolAssgnmntBoolMapList>
+        </BoolOp>
+    </BoolOpList>
+    <HierarchyLvlTypeList>
+        <HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="4"/>
+        <HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="5"/>
+        <HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="6"/>
+        <HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="7"/>
+    </HierarchyLvlTypeList>
+    <MASTRoot>
+        <HierarchyLvl HierarchyLvlId="474" HierarchyLvlTypeId="7" Intrnl_Id="8" Name="default package">
+            <Header/>
+            <LocList/>
+            <HierarchyLvl HierarchyLvlId="473" HierarchyLvlTypeId="4" Intrnl_Id="9" Name="Stub">
+                <Header/>
+                <LocList/>
+                <HierarchyLvl HierarchyLvlId="468" HierarchyLvlTypeId="6" Intrnl_Id="10" Name="StubRegistrazione">
+                    <Header>
+                        <Loc EndOffset="78" SrcFileId="1" StartOffset="48"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="2705" SrcFileId="1" StartOffset="48"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="459" HierarchyLvlTypeId="5" Intrnl_Id="11" Name="getRimborso">
+                        <Header>
+                            <Loc EndOffset="246" SrcFileId="1" StartOffset="213"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="272" SrcFileId="1" StartOffset="213"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="12">
+                            <LocList>
+                                <Loc EndOffset="268" SrcFileId="1" StartOffset="252"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="13">
+                                <LocList>
+                                    <Loc EndOffset="268" SrcFileId="1" StartOffset="252"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="460" HierarchyLvlTypeId="5" Intrnl_Id="14" Name="setRimborso">
+                        <Header>
+                            <Loc EndOffset="321" SrcFileId="1" StartOffset="275"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="356" SrcFileId="1" StartOffset="275"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="15">
+                            <LocList>
+                                <Loc EndOffset="352" SrcFileId="1" StartOffset="327"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S2" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="16">
+                                <LocList>
+                                    <Loc EndOffset="352" SrcFileId="1" StartOffset="327"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="461" HierarchyLvlTypeId="5" Intrnl_Id="17" Name="getAcquisti">
+                        <Header>
+                            <Loc EndOffset="403" SrcFileId="1" StartOffset="359"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="429" SrcFileId="1" StartOffset="359"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="18">
+                            <LocList>
+                                <Loc EndOffset="425" SrcFileId="1" StartOffset="409"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S3" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="19">
+                                <LocList>
+                                    <Loc EndOffset="425" SrcFileId="1" StartOffset="409"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="462" HierarchyLvlTypeId="5" Intrnl_Id="20" Name="setAcquisti">
+                        <Header>
+                            <Loc EndOffset="489" SrcFileId="1" StartOffset="432"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="524" SrcFileId="1" StartOffset="432"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="21">
+                            <LocList>
+                                <Loc EndOffset="520" SrcFileId="1" StartOffset="495"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S4" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="22">
+                                <LocList>
+                                    <Loc EndOffset="520" SrcFileId="1" StartOffset="495"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="463" HierarchyLvlTypeId="5" Intrnl_Id="23" Name="getId">
+                        <Header>
+                            <Loc EndOffset="548" SrcFileId="1" StartOffset="527"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="568" SrcFileId="1" StartOffset="527"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="24">
+                            <LocList>
+                                <Loc EndOffset="564" SrcFileId="1" StartOffset="554"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S5" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="25">
+                                <LocList>
+                                    <Loc EndOffset="564" SrcFileId="1" StartOffset="554"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="464" HierarchyLvlTypeId="5" Intrnl_Id="26" Name="setId">
+                        <Header>
+                            <Loc EndOffset="599" SrcFileId="1" StartOffset="571"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="622" SrcFileId="1" StartOffset="571"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="27">
+                            <LocList>
+                                <Loc EndOffset="618" SrcFileId="1" StartOffset="605"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S6" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="28">
+                                <LocList>
+                                    <Loc EndOffset="618" SrcFileId="1" StartOffset="605"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="465" HierarchyLvlTypeId="5" Intrnl_Id="29" Name="getPassword">
+                        <Header>
+                            <Loc EndOffset="652" SrcFileId="1" StartOffset="625"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="678" SrcFileId="1" StartOffset="625"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="30">
+                            <LocList>
+                                <Loc EndOffset="674" SrcFileId="1" StartOffset="658"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S7" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="31">
+                                <LocList>
+                                    <Loc EndOffset="674" SrcFileId="1" StartOffset="658"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="466" HierarchyLvlTypeId="5" Intrnl_Id="32" Name="setPassword">
+                        <Header>
+                            <Loc EndOffset="721" SrcFileId="1" StartOffset="681"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="756" SrcFileId="1" StartOffset="681"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="33">
+                            <LocList>
+                                <Loc EndOffset="752" SrcFileId="1" StartOffset="727"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S8" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="34">
+                                <LocList>
+                                    <Loc EndOffset="752" SrcFileId="1" StartOffset="727"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="467" HierarchyLvlTypeId="5" Intrnl_Id="35" Name="StubRegistrazione">
+                        <Header>
+                            <Loc EndOffset="808" SrcFileId="1" StartOffset="761"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="2700" SrcFileId="1" StartOffset="761"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="36">
+                            <LocList>
+                                <Loc EndOffset="1303" SrcFileId="1" StartOffset="814"/>
+                                <Loc EndOffset="1888" SrcFileId="1" StartOffset="1307"/>
+                                <Loc EndOffset="2381" SrcFileId="1" StartOffset="1892"/>
+                                <Loc EndOffset="2696" SrcFileId="1" StartOffset="2385"/>
+                            </LocList>
+                            <CondStmnt CovItemId="S9" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="37">
+                                <Branch CovItemId="B1" CovItemPrefix="Stub.StubRegistrazione.java" Implct="false" Intrnl_Id="38">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="1303" SrcFileId="1" StartOffset="875"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="39">
+                                        <LocList>
+                                            <Loc EndOffset="911" SrcFileId="1" StartOffset="881"/>
+                                            <Loc EndOffset="947" SrcFileId="1" StartOffset="916"/>
+                                            <Loc EndOffset="993" SrcFileId="1" StartOffset="952"/>
+                                            <Loc EndOffset="1054" SrcFileId="1" StartOffset="998"/>
+                                            <Loc EndOffset="1115" SrcFileId="1" StartOffset="1059"/>
+                                            <Loc EndOffset="1175" SrcFileId="1" StartOffset="1120"/>
+                                            <Loc EndOffset="1204" SrcFileId="1" StartOffset="1180"/>
+                                            <Loc EndOffset="1233" SrcFileId="1" StartOffset="1209"/>
+                                            <Loc EndOffset="1262" SrcFileId="1" StartOffset="1238"/>
+                                            <Loc EndOffset="1298" SrcFileId="1" StartOffset="1267"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S10" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="40">
+                                            <LocList>
+                                                <Loc EndOffset="911" SrcFileId="1" StartOffset="881"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S11" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="41">
+                                            <LocList>
+                                                <Loc EndOffset="947" SrcFileId="1" StartOffset="916"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S12" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="42">
+                                            <LocList>
+                                                <Loc EndOffset="993" SrcFileId="1" StartOffset="952"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S13" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="43">
+                                            <LocList>
+                                                <Loc EndOffset="1054" SrcFileId="1" StartOffset="998"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S14" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="44">
+                                            <LocList>
+                                                <Loc EndOffset="1115" SrcFileId="1" StartOffset="1059"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S15" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="45">
+                                            <LocList>
+                                                <Loc EndOffset="1175" SrcFileId="1" StartOffset="1120"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S16" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="46">
+                                            <LocList>
+                                                <Loc EndOffset="1204" SrcFileId="1" StartOffset="1180"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S17" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="47">
+                                            <LocList>
+                                                <Loc EndOffset="1233" SrcFileId="1" StartOffset="1209"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S18" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="48">
+                                            <LocList>
+                                                <Loc EndOffset="1262" SrcFileId="1" StartOffset="1238"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S19" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="49">
+                                            <LocList>
+                                                <Loc EndOffset="1298" SrcFileId="1" StartOffset="1267"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B2" CovItemPrefix="Stub.StubRegistrazione.java" Implct="true" Intrnl_Id="50">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="51">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="816" SrcFileId="1" StartOffset="814"/>
+                                <LocList>
+                                    <Loc EndOffset="1303" SrcFileId="1" StartOffset="814"/>
+                                </LocList>
+                                <RootTerm CovItemId="C1" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="52">
+                                    <OpTerm BooleanOpId="3" Intrnl_Id="53">
+                                        <BasicBoolTerm Intrnl_Id="54">
+                                            <LocList>
+                                                <Loc EndOffset="845" SrcFileId="1" StartOffset="817"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <BasicBoolTerm Intrnl_Id="55">
+                                            <LocList>
+                                                <Loc EndOffset="873" SrcFileId="1" StartOffset="849"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <LocList>
+                                            <Loc EndOffset="848" SrcFileId="1" StartOffset="846"/>
+                                        </LocList>
+                                    </OpTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                            <CondStmnt CovItemId="S20" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="56">
+                                <Branch CovItemId="B3" CovItemPrefix="Stub.StubRegistrazione.java" Implct="false" Intrnl_Id="57">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="1888" SrcFileId="1" StartOffset="1368"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="58">
+                                        <LocList>
+                                            <Loc EndOffset="1404" SrcFileId="1" StartOffset="1374"/>
+                                            <Loc EndOffset="1440" SrcFileId="1" StartOffset="1409"/>
+                                            <Loc EndOffset="1486" SrcFileId="1" StartOffset="1445"/>
+                                            <Loc EndOffset="1547" SrcFileId="1" StartOffset="1491"/>
+                                            <Loc EndOffset="1608" SrcFileId="1" StartOffset="1552"/>
+                                            <Loc EndOffset="1669" SrcFileId="1" StartOffset="1613"/>
+                                            <Loc EndOffset="1729" SrcFileId="1" StartOffset="1674"/>
+                                            <Loc EndOffset="1758" SrcFileId="1" StartOffset="1734"/>
+                                            <Loc EndOffset="1787" SrcFileId="1" StartOffset="1763"/>
+                                            <Loc EndOffset="1816" SrcFileId="1" StartOffset="1792"/>
+                                            <Loc EndOffset="1845" SrcFileId="1" StartOffset="1821"/>
+                                            <Loc EndOffset="1881" SrcFileId="1" StartOffset="1850"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S21" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="59">
+                                            <LocList>
+                                                <Loc EndOffset="1404" SrcFileId="1" StartOffset="1374"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S22" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="60">
+                                            <LocList>
+                                                <Loc EndOffset="1440" SrcFileId="1" StartOffset="1409"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S23" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="61">
+                                            <LocList>
+                                                <Loc EndOffset="1486" SrcFileId="1" StartOffset="1445"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S24" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="62">
+                                            <LocList>
+                                                <Loc EndOffset="1547" SrcFileId="1" StartOffset="1491"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S25" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="63">
+                                            <LocList>
+                                                <Loc EndOffset="1608" SrcFileId="1" StartOffset="1552"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S26" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="64">
+                                            <LocList>
+                                                <Loc EndOffset="1669" SrcFileId="1" StartOffset="1613"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S27" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="65">
+                                            <LocList>
+                                                <Loc EndOffset="1729" SrcFileId="1" StartOffset="1674"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S28" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="66">
+                                            <LocList>
+                                                <Loc EndOffset="1758" SrcFileId="1" StartOffset="1734"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S29" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="67">
+                                            <LocList>
+                                                <Loc EndOffset="1787" SrcFileId="1" StartOffset="1763"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S30" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="68">
+                                            <LocList>
+                                                <Loc EndOffset="1816" SrcFileId="1" StartOffset="1792"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S31" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="69">
+                                            <LocList>
+                                                <Loc EndOffset="1845" SrcFileId="1" StartOffset="1821"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S32" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="70">
+                                            <LocList>
+                                                <Loc EndOffset="1881" SrcFileId="1" StartOffset="1850"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B4" CovItemPrefix="Stub.StubRegistrazione.java" Implct="true" Intrnl_Id="71">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="72">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="1309" SrcFileId="1" StartOffset="1307"/>
+                                <LocList>
+                                    <Loc EndOffset="1888" SrcFileId="1" StartOffset="1307"/>
+                                </LocList>
+                                <RootTerm CovItemId="C2" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="73">
+                                    <OpTerm BooleanOpId="3" Intrnl_Id="74">
+                                        <BasicBoolTerm Intrnl_Id="75">
+                                            <LocList>
+                                                <Loc EndOffset="1338" SrcFileId="1" StartOffset="1310"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <BasicBoolTerm Intrnl_Id="76">
+                                            <LocList>
+                                                <Loc EndOffset="1366" SrcFileId="1" StartOffset="1342"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <LocList>
+                                            <Loc EndOffset="1341" SrcFileId="1" StartOffset="1339"/>
+                                        </LocList>
+                                    </OpTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                            <CondStmnt CovItemId="S33" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="77">
+                                <Branch CovItemId="B5" CovItemPrefix="Stub.StubRegistrazione.java" Implct="false" Intrnl_Id="78">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="2381" SrcFileId="1" StartOffset="1953"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="79">
+                                        <LocList>
+                                            <Loc EndOffset="1989" SrcFileId="1" StartOffset="1959"/>
+                                            <Loc EndOffset="2025" SrcFileId="1" StartOffset="1994"/>
+                                            <Loc EndOffset="2071" SrcFileId="1" StartOffset="2030"/>
+                                            <Loc EndOffset="2130" SrcFileId="1" StartOffset="2076"/>
+                                            <Loc EndOffset="2190" SrcFileId="1" StartOffset="2135"/>
+                                            <Loc EndOffset="2251" SrcFileId="1" StartOffset="2195"/>
+                                            <Loc EndOffset="2280" SrcFileId="1" StartOffset="2256"/>
+                                            <Loc EndOffset="2309" SrcFileId="1" StartOffset="2285"/>
+                                            <Loc EndOffset="2338" SrcFileId="1" StartOffset="2314"/>
+                                            <Loc EndOffset="2374" SrcFileId="1" StartOffset="2343"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S34" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="80">
+                                            <LocList>
+                                                <Loc EndOffset="1989" SrcFileId="1" StartOffset="1959"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S35" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="81">
+                                            <LocList>
+                                                <Loc EndOffset="2025" SrcFileId="1" StartOffset="1994"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S36" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="82">
+                                            <LocList>
+                                                <Loc EndOffset="2071" SrcFileId="1" StartOffset="2030"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S37" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="83">
+                                            <LocList>
+                                                <Loc EndOffset="2130" SrcFileId="1" StartOffset="2076"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S38" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="84">
+                                            <LocList>
+                                                <Loc EndOffset="2190" SrcFileId="1" StartOffset="2135"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S39" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="85">
+                                            <LocList>
+                                                <Loc EndOffset="2251" SrcFileId="1" StartOffset="2195"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S40" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="86">
+                                            <LocList>
+                                                <Loc EndOffset="2280" SrcFileId="1" StartOffset="2256"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S41" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="87">
+                                            <LocList>
+                                                <Loc EndOffset="2309" SrcFileId="1" StartOffset="2285"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S42" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="88">
+                                            <LocList>
+                                                <Loc EndOffset="2338" SrcFileId="1" StartOffset="2314"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S43" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="89">
+                                            <LocList>
+                                                <Loc EndOffset="2374" SrcFileId="1" StartOffset="2343"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B6" CovItemPrefix="Stub.StubRegistrazione.java" Implct="true" Intrnl_Id="90">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="91">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="1894" SrcFileId="1" StartOffset="1892"/>
+                                <LocList>
+                                    <Loc EndOffset="2381" SrcFileId="1" StartOffset="1892"/>
+                                </LocList>
+                                <RootTerm CovItemId="C3" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="92">
+                                    <OpTerm BooleanOpId="3" Intrnl_Id="93">
+                                        <BasicBoolTerm Intrnl_Id="94">
+                                            <LocList>
+                                                <Loc EndOffset="1923" SrcFileId="1" StartOffset="1895"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <BasicBoolTerm Intrnl_Id="95">
+                                            <LocList>
+                                                <Loc EndOffset="1951" SrcFileId="1" StartOffset="1927"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <LocList>
+                                            <Loc EndOffset="1926" SrcFileId="1" StartOffset="1924"/>
+                                        </LocList>
+                                    </OpTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                            <CondStmnt CovItemId="S44" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="96">
+                                <Branch CovItemId="B7" CovItemPrefix="Stub.StubRegistrazione.java" Implct="false" Intrnl_Id="97">
+                                    <Cond/>
+                                    <LocList>
+                                        <Loc EndOffset="2696" SrcFileId="1" StartOffset="2446"/>
+                                    </LocList>
+                                    <StmntSeq Intrnl_Id="98">
+                                        <LocList>
+                                            <Loc EndOffset="2482" SrcFileId="1" StartOffset="2452"/>
+                                            <Loc EndOffset="2518" SrcFileId="1" StartOffset="2487"/>
+                                            <Loc EndOffset="2564" SrcFileId="1" StartOffset="2523"/>
+                                            <Loc EndOffset="2624" SrcFileId="1" StartOffset="2569"/>
+                                            <Loc EndOffset="2653" SrcFileId="1" StartOffset="2629"/>
+                                            <Loc EndOffset="2689" SrcFileId="1" StartOffset="2658"/>
+                                        </LocList>
+                                        <BasicStmnt CovItemId="S45" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="99">
+                                            <LocList>
+                                                <Loc EndOffset="2482" SrcFileId="1" StartOffset="2452"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S46" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="100">
+                                            <LocList>
+                                                <Loc EndOffset="2518" SrcFileId="1" StartOffset="2487"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S47" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="101">
+                                            <LocList>
+                                                <Loc EndOffset="2564" SrcFileId="1" StartOffset="2523"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S48" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="102">
+                                            <LocList>
+                                                <Loc EndOffset="2624" SrcFileId="1" StartOffset="2569"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S49" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="103">
+                                            <LocList>
+                                                <Loc EndOffset="2653" SrcFileId="1" StartOffset="2629"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                        <BasicStmnt CovItemId="S50" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="104">
+                                            <LocList>
+                                                <Loc EndOffset="2689" SrcFileId="1" StartOffset="2658"/>
+                                            </LocList>
+                                        </BasicStmnt>
+                                    </StmntSeq>
+                                </Branch>
+                                <Branch CovItemId="B8" CovItemPrefix="Stub.StubRegistrazione.java" Implct="true" Intrnl_Id="105">
+                                    <Cond/>
+                                    <LocList/>
+                                    <StmntSeq Intrnl_Id="106">
+                                        <LocList/>
+                                    </StmntSeq>
+                                </Branch>
+                                <Keyword EndOffset="2387" SrcFileId="1" StartOffset="2385"/>
+                                <LocList>
+                                    <Loc EndOffset="2696" SrcFileId="1" StartOffset="2385"/>
+                                </LocList>
+                                <RootTerm CovItemId="C4" CovItemPrefix="Stub.StubRegistrazione.java" Intrnl_Id="107">
+                                    <OpTerm BooleanOpId="3" Intrnl_Id="108">
+                                        <BasicBoolTerm Intrnl_Id="109">
+                                            <LocList>
+                                                <Loc EndOffset="2416" SrcFileId="1" StartOffset="2388"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <BasicBoolTerm Intrnl_Id="110">
+                                            <LocList>
+                                                <Loc EndOffset="2444" SrcFileId="1" StartOffset="2420"/>
+                                            </LocList>
+                                        </BasicBoolTerm>
+                                        <LocList>
+                                            <Loc EndOffset="2419" SrcFileId="1" StartOffset="2417"/>
+                                        </LocList>
+                                    </OpTerm>
+                                </RootTerm>
+                            </CondStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+                <HierarchyLvl HierarchyLvlId="472" HierarchyLvlTypeId="6" Intrnl_Id="111" Name="StubRimborso">
+                    <Header>
+                        <Loc EndOffset="42" SrcFileId="2" StartOffset="17"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="312" SrcFileId="2" StartOffset="17"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="469" HierarchyLvlTypeId="5" Intrnl_Id="112" Name="getImporto">
+                        <Header>
+                            <Loc EndOffset="142" SrcFileId="2" StartOffset="117"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="167" SrcFileId="2" StartOffset="117"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="113">
+                            <LocList>
+                                <Loc EndOffset="163" SrcFileId="2" StartOffset="148"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="Stub.StubRimborso.java" Intrnl_Id="114">
+                                <LocList>
+                                    <Loc EndOffset="163" SrcFileId="2" StartOffset="148"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="470" HierarchyLvlTypeId="5" Intrnl_Id="115" Name="setRimborso">
+                        <Header>
+                            <Loc EndOffset="210" SrcFileId="2" StartOffset="172"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="243" SrcFileId="2" StartOffset="172"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="116">
+                            <LocList>
+                                <Loc EndOffset="239" SrcFileId="2" StartOffset="216"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S2" CovItemPrefix="Stub.StubRimborso.java" Intrnl_Id="117">
+                                <LocList>
+                                    <Loc EndOffset="239" SrcFileId="2" StartOffset="216"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="471" HierarchyLvlTypeId="5" Intrnl_Id="118" Name="StubRimborso">
+                        <Header>
+                            <Loc EndOffset="272" SrcFileId="2" StartOffset="249"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="309" SrcFileId="2" StartOffset="249"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="119">
+                            <LocList>
+                                <Loc EndOffset="302" SrcFileId="2" StartOffset="280"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S3" CovItemPrefix="Stub.StubRimborso.java" Intrnl_Id="120">
+                                <LocList>
+                                    <Loc EndOffset="302" SrcFileId="2" StartOffset="280"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+            </HierarchyLvl>
+        </HierarchyLvl>
+    </MASTRoot>
+</TestSessionContainer>

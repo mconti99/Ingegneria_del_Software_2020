@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1611339185841" TestSessionContainerId="5a75c55e-44da-4730-ae9e-91efe86a49ce" version="1.0">
+    <SrcFileList>
+        <SrcFile Content="package Stub;&#13;&#10;&#13;&#10;public class StubRimborso {&#13;&#10;&#13;&#10;&#9;private float importo;&#13;&#10;&#13;&#10;&#9;/**&#13;&#10;&#9; * &#13;&#10;&#9; * @param rimborso&#13;&#10;&#9; */&#13;&#10;&#13;&#10;&#9;public float getImporto() {&#13;&#10;&#9;&#9;return importo;&#13;&#10;&#9;}&#13;&#10;&#13;&#10;&#9;public void setRimborso(float importo) {&#13;&#10;&#9;&#9;this.importo = importo;&#13;&#10;&#9;}&#13;&#10;    StubRimborso(float imp){&#13;&#10;    &#9;this.setRimborso(imp);&#13;&#10;    }&#13;&#10;}" Filename="StubRimborso.java" Intrnl_Id="1"/>
+    </SrcFileList>
+    <CritList>
+        <CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.QMOCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.SynchronizedStatementCoverage" PluginName="org.codecover"/>
+        <CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+    </CritList>
+    <BoolOpList/>
+    <HierarchyLvlTypeList>
+        <HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="2"/>
+        <HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="3"/>
+        <HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="4"/>
+        <HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="5"/>
+    </HierarchyLvlTypeList>
+    <MASTRoot>
+        <HierarchyLvl HierarchyLvlId="480" HierarchyLvlTypeId="5" Intrnl_Id="6" Name="default package">
+            <Header/>
+            <LocList/>
+            <HierarchyLvl HierarchyLvlId="479" HierarchyLvlTypeId="2" Intrnl_Id="7" Name="Stub">
+                <Header/>
+                <LocList/>
+                <HierarchyLvl HierarchyLvlId="478" HierarchyLvlTypeId="4" Intrnl_Id="8" Name="StubRimborso">
+                    <Header>
+                        <Loc EndOffset="42" SrcFileId="1" StartOffset="17"/>
+                    </Header>
+                    <LocList>
+                        <Loc EndOffset="312" SrcFileId="1" StartOffset="17"/>
+                    </LocList>
+                    <HierarchyLvl HierarchyLvlId="475" HierarchyLvlTypeId="3" Intrnl_Id="9" Name="getImporto">
+                        <Header>
+                            <Loc EndOffset="142" SrcFileId="1" StartOffset="117"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="167" SrcFileId="1" StartOffset="117"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="10">
+                            <LocList>
+                                <Loc EndOffset="163" SrcFileId="1" StartOffset="148"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S1" CovItemPrefix="Stub.StubRimborso.java" Intrnl_Id="11">
+                                <LocList>
+                                    <Loc EndOffset="163" SrcFileId="1" StartOffset="148"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="476" HierarchyLvlTypeId="3" Intrnl_Id="12" Name="setRimborso">
+                        <Header>
+                            <Loc EndOffset="210" SrcFileId="1" StartOffset="172"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="243" SrcFileId="1" StartOffset="172"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="13">
+                            <LocList>
+                                <Loc EndOffset="239" SrcFileId="1" StartOffset="216"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S2" CovItemPrefix="Stub.StubRimborso.java" Intrnl_Id="14">
+                                <LocList>
+                                    <Loc EndOffset="239" SrcFileId="1" StartOffset="216"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                    <HierarchyLvl HierarchyLvlId="477" HierarchyLvlTypeId="3" Intrnl_Id="15" Name="StubRimborso">
+                        <Header>
+                            <Loc EndOffset="272" SrcFileId="1" StartOffset="249"/>
+                        </Header>
+                        <LocList>
+                            <Loc EndOffset="309" SrcFileId="1" StartOffset="249"/>
+                        </LocList>
+                        <StmntSeq Intrnl_Id="16">
+                            <LocList>
+                                <Loc EndOffset="302" SrcFileId="1" StartOffset="280"/>
+                            </LocList>
+                            <BasicStmnt CovItemId="S3" CovItemPrefix="Stub.StubRimborso.java" Intrnl_Id="17">
+                                <LocList>
+                                    <Loc EndOffset="302" SrcFileId="1" StartOffset="280"/>
+                                </LocList>
+                            </BasicStmnt>
+                        </StmntSeq>
+                    </HierarchyLvl>
+                </HierarchyLvl>
+            </HierarchyLvl>
+        </HierarchyLvl>
+    </MASTRoot>
+</TestSessionContainer>
